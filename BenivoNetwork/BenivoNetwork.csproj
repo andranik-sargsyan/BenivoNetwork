@@ -162,6 +162,7 @@
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.esm.min.js" />
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.js" />
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.min.js" />
+    <Content Include="Content\jQuery.3.6.0\jquery-3.6.0.min.js" />
     <Content Include="Content\Scripts\script.js" />
     <Content Include="Content\Styles\index.css" />
     <Content Include="favicon.ico" />
