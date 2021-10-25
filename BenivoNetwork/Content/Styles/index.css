@@ -7,6 +7,55 @@
     margin-top: -6px;
 }
 
-.ad-img {
+.bn-ad-img {
     width: 100%;
+}
+
+.bn-post {
+    background-color: #eee;
+    border: solid 1px #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.bn-profile-link {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+    .bn-profile-link:hover > span {
+        text-decoration: underline;
+        color: #444;
+    }
+
+.bn-profile-link {
+    color: #444;
+}
+
+.bn-profile-pic {
+    width: 20px;
+    height: 20px;
+    vertical-align: bottom;
+}
+
+.bn-like > span:last-child {
+    vertical-align: text-bottom;
+}
+
+.bn-like.bn-active,
+.bn-like:hover {
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.bn-like-count {
+    cursor: pointer;
+}
+
+.bn-comment {
+    margin: 10px 0px;
+    padding: 10px;
+    padding-bottom: 1px;
+    background-color: white;
+    border-radius: 4px;
 }

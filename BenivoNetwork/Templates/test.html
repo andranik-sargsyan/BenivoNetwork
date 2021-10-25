@@ -13,7 +13,6 @@
 </head>
 <body class="d-flex flex-column h-100">
     <header>
-        <!-- Fixed navbar -->
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="index.html">
@@ -43,28 +42,70 @@
         </nav>
     </header>
 
-    <!-- Begin page content -->
     <main class="flex-shrink-0">
         <div class="container">
             <div class="row content">
                 <div class="col-md-2 sidenav">
-                    <img class="d-none d-md-block ad-img" src="../Content/Images/ad-big.gif" alt="Ad" />
-                    <img class="d-block d-md-none ad-img" src="../Content/Images/ad-small.gif" alt="Ad"/>
+                    <img class="d-none d-md-block bn-ad-img" src="../Content/Images/ad-big.gif" alt="McDonalds Ad" />
+                    <img class="d-block d-md-none bn-ad-img" src="../Content/Images/ad-small.gif" alt="McDonalds Ad"/>
                 </div>
-                <div class="col-md-8 text-left">
-                    <h1>Welcome</h1>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                    <hr>
-                    <h3>Test</h3>
-                    <p>Lorem ipsum...</p>
+                <div class="col-md-8 text-left mt-2">
+                    <!--<h3>News Feed</h3>-->
+                    <div class="bn-post">
+                        <div class="bn-post-content">
+                            <figure>
+                                <blockquote class="blockquote">
+                                    <p>A well-known quote, contained in a blockquote element.</p>
+                                </blockquote>
+                                <figcaption class="blockquote-footer">
+                                    By
+                                    <a href="user-profile.html" class="bn-profile-link">
+                                        <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                        <span>Lorem Ipsum</span>
+                                    </a>
+                                    on <cite>2021-09-21 00:43</cite>
+                                </figcaption>
+                            </figure>
+                        </div>
+                        <div class="bn-post-footer">
+                            <span class="bn-like">
+                                <span>Like </span><span>👍</span>
+                            </span>
+                            <span class="bn-like-count" title="User 1, User 2">45</span>
+                            <!--Liked by...-->
+                            |
+                            <span class="bn-comment-count">8 Comments</span>
+                        </div>
+                        <div class="bn-comments-wrapper">
+                            <textarea class="form-control"></textarea>
+                            <div class="bn-comments">
+                                <div class="bn-comment">
+                                    <a href="user-profile.html" class="bn-profile-link">
+                                        <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                        <span>Lorem Ipsum</span>
+                                    </a>
+                                    <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                                </div>
+                                <div class="bn-comment">
+                                    <a href="user-profile.html" class="bn-profile-link">
+                                        <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                        <span>Lorem Ipsum</span>
+                                    </a>
+                                    <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                                </div>
+                                <div class="bn-comment">
+                                    <a href="user-profile.html" class="bn-profile-link">
+                                        <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                        <span>Lorem Ipsum</span>
+                                    </a>
+                                    <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-2 sidenav">
-                    <div class="well">
-                        <p>ADS</p>
-                    </div>
-                    <div class="well">
-                        <p>ADS</p>
-                    </div>
+                    Friends
                 </div>
             </div>
         </div>
@@ -73,6 +114,7 @@
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
             <span class="text-muted">Place sticky footer content here.</span>
+            <!--2021 - dynamic-->
         </div>
     </footer>
 </body>

@@ -164,6 +164,7 @@
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.min.js" />
     <Content Include="Content\Images\ad-big.gif" />
     <Content Include="Content\Images\ad-small.gif" />
+    <Content Include="Content\Images\user.png" />
     <Content Include="favicon.ico" />
     <Content Include="Content\Images\logo.png" />
     <Content Include="Content\jQuery.3.6.0\jquery-3.6.0.min.js" />
