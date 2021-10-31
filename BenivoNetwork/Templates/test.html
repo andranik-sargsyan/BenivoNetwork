@@ -18,10 +18,10 @@
                 <a class="navbar-brand" href="index.html">
                     <img id="logo" src="../Content/Images/logo.png" alt="Benivo Network" />
                 </a>
-                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse" id="navbarCollapse" style="">
+                <div class="navbar-collapse collapse" id="navbar-collapse" style="">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#">Home</a>
@@ -50,62 +50,153 @@
                     <img class="d-block d-md-none bn-ad-img" src="../Content/Images/ad-small.gif" alt="McDonalds Ad"/>
                 </div>
                 <div class="col-md-8 text-left mt-2">
-                    <!--<h3>News Feed</h3>-->
-                    <div class="bn-post">
-                        <div class="bn-post-content">
-                            <figure>
-                                <blockquote class="blockquote">
-                                    <p>A well-known quote, contained in a blockquote element.</p>
-                                </blockquote>
-                                <figcaption class="blockquote-footer">
-                                    By
-                                    <a href="user-profile.html" class="bn-profile-link">
-                                        <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
-                                        <span>Lorem Ipsum</span>
-                                    </a>
-                                    on <cite>2021-09-21 00:43</cite>
-                                </figcaption>
-                            </figure>
-                        </div>
-                        <div class="bn-post-footer">
-                            <span class="bn-like">
-                                <span>Like </span><span>👍</span>
-                            </span>
-                            <span class="bn-like-count" title="User 1, User 2">45</span>
-                            <!--Liked by...-->
-                            |
-                            <span class="bn-comment-count">8 Comments</span>
-                        </div>
-                        <div class="bn-comments-wrapper">
-                            <textarea class="form-control"></textarea>
-                            <div class="bn-comments">
-                                <div class="bn-comment">
-                                    <a href="user-profile.html" class="bn-profile-link">
-                                        <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
-                                        <span>Lorem Ipsum</span>
-                                    </a>
-                                    <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
-                                </div>
-                                <div class="bn-comment">
-                                    <a href="user-profile.html" class="bn-profile-link">
-                                        <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
-                                        <span>Lorem Ipsum</span>
-                                    </a>
-                                    <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
-                                </div>
-                                <div class="bn-comment">
-                                    <a href="user-profile.html" class="bn-profile-link">
-                                        <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
-                                        <span>Lorem Ipsum</span>
-                                    </a>
-                                    <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                    <h3>News Feed</h3>
+                    <div id="bn-posts">
+                        <div class="bn-post">
+                            <div class="bn-post-content">
+                                <figure>
+                                    <blockquote class="blockquote">
+                                        <p>A well-known quote, contained in a blockquote element.</p>
+                                    </blockquote>
+                                    <figcaption class="blockquote-footer">
+                                        By
+                                        <a href="user-profile.html" class="bn-profile-link">
+                                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                            <span>Lorem Ipsum</span>
+                                        </a>
+                                        on <cite>2021-09-21 00:43</cite>
+                                    </figcaption>
+                                </figure>
+                            </div>
+                            <div class="bn-post-footer">
+                                <span class="bn-like">
+                                    <span>Like </span><span>👍</span>
+                                </span>
+                                <span class="bn-like-count" title="User 1, User 2">45</span>
+                                <!--title - dynamic-->
+                                |
+                                <span class="bn-comment-count">8 Comments</span>
+                            </div>
+                            <div class="bn-comments-wrapper">
+                                <textarea class="form-control" placeholder="Your comment here..."></textarea>
+                                <div class="bn-comments">
+                                    <div class="bn-comment">
+                                        <a href="user-profile.html" class="bn-profile-link">
+                                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                            <span>Lorem Ipsum</span>
+                                        </a>
+                                        <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                                        <span class="bn-like">
+                                            <span>Like </span><span>👍</span>
+                                        </span>
+                                        <span class="bn-like-count" title="User 1, User 2">2</span>
+                                    </div>
+                                    <div class="bn-comment">
+                                        <a href="user-profile.html" class="bn-profile-link">
+                                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                            <span>Lorem Ipsum</span>
+                                        </a>
+                                        <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                                        <span class="bn-like">
+                                            <span>Like </span><span>👍</span>
+                                        </span>
+                                        <span class="bn-like-count" title=""></span>
+                                    </div>
+                                    <div class="bn-comment">
+                                        <a href="user-profile.html" class="bn-profile-link">
+                                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                            <span>Lorem Ipsum</span>
+                                        </a>
+                                        <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                                        <span class="bn-like">
+                                            <span>Like </span><span>👍</span>
+                                        </span>
+                                        <span class="bn-like-count" title=""></span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-2 sidenav">
-                    Friends
+                    <h3>Friends</h3>
+                    <div id="bn-firends">
+                        <div class="bn-friend">
+                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                            <span>Lorem Ipsum</span>
+                            <span class="bn-online-status bn-online" title="20:08"></span>
+                            <!--20:08 - dynamic-->
+                            <div class="bn-profile-box">
+                                <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                <span>
+                                    <a href="#">Lorem Ipsum</a><br />
+                                    <span><b>Birthday:</b> 16.07.1990</span><br />
+                                    <span><b>Gender:</b> Male</span><br />
+                                    <!--Other -->
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bn-friend">
+                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                            <span>Lorem Ipsum</span>
+                            <span class="bn-online-status bn-online" title="20:07"></span>
+                            <!--20:07 - dynamic-->
+                            <div class="bn-profile-box">
+                                <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                <span>
+                                    <a href="#">Lorem Ipsum</a><br />
+                                    <span><b>Birthday:</b> 16.07.1990</span><br />
+                                    <span><b>Gender:</b> Male</span><br />
+                                    <!--Other -->
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bn-friend">
+                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                            <span>Lorem Ipsum</span>
+                            <span class="bn-online-status bn-offline" title="5 minutes ago"></span>
+                            <!--5 - dynamic-->
+                            <div class="bn-profile-box">
+                                <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                <span>
+                                    <a href="#">Lorem Ipsum</a><br />
+                                    <span><b>Birthday:</b> 16.07.1990</span><br />
+                                    <span><b>Gender:</b> Male</span><br />
+                                    <!--Other -->
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bn-friend">
+                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                            <span>Lorem Ipsum</span>
+                            <span class="bn-online-status bn-offline" title="8 minutes ago"></span>
+                            <!--8 - dynamic-->
+                            <div class="bn-profile-box">
+                                <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                <span>
+                                    <a href="#">Lorem Ipsum</a><br />
+                                    <span><b>Birthday:</b> 16.07.1990</span><br />
+                                    <span><b>Gender:</b> Male</span><br />
+                                    <!--Other -->
+                                </span>
+                            </div>
+                        </div>
+                        <div class="bn-friend">
+                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                            <span>Lorem Ipsum</span>
+                            <span class="bn-online-status bn-offline" title="14:10 dd.MM.yyyy"></span>
+                            <!--14:10 dd.MM.yyyy - dynamic-->
+                            <div class="bn-profile-box">
+                                <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                <span>
+                                    <a href="#">Lorem Ipsum</a><br />
+                                    <span><b>Birthday:</b> 16.07.1990</span><br />
+                                    <span><b>Gender:</b> Male</span><br />
+                                    <!--Other -->
+                                </span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -113,7 +204,7 @@
 
     <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
-            <span class="text-muted">Place sticky footer content here.</span>
+            <span class="text-muted">Copyright © 2021 by Andranik Sargsyan</span>
             <!--2021 - dynamic-->
         </div>
     </footer>
