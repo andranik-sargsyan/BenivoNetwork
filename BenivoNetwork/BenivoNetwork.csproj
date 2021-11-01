@@ -195,7 +195,6 @@
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.esm.min.js.map" />
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.js.map" />
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.min.js.map" />
-    <Content Include="Templates\test.html" />
     <Content Include="Templates\user-profile.html" />
     <Content Include="Templates\search.html" />
     <Content Include="Templates\messages.html" />
