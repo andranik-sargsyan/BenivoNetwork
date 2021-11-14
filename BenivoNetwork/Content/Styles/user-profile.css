@@ -22,11 +22,6 @@
     vertical-align: bottom;
 }
 
-.bn-like > span:first-child {
-    display: inline-block;
-    width: 32px;
-}
-
 .bn-like > span:last-child {
     vertical-align: text-bottom;
 }

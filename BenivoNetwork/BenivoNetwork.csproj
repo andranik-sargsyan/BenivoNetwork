@@ -165,10 +165,14 @@
     <Content Include="Content\Images\ad-big.gif" />
     <Content Include="Content\Images\ad-small.gif" />
     <Content Include="Content\Images\user.png" />
+    <Content Include="Content\Scripts\index.js" />
+    <Content Include="Content\Scripts\user-profile.js" />
+    <Content Include="Content\Styles\common.css" />
+    <Content Include="Content\Styles\user-profile.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\Images\logo.png" />
-    <Content Include="Content\jQuery.3.6.0\jquery-3.6.0.min.js" />
-    <Content Include="Content\Scripts\script.js" />
+    <Content Include="Content\jquery.3.6.0\jquery-3.6.0.min.js" />
+    <Content Include="Content\Scripts\common.js" />
     <Content Include="Content\Styles\index.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />

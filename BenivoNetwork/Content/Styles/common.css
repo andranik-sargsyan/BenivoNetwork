@@ -1,0 +1,25 @@
+﻿main > .container {
+    padding-top: 80px;
+}
+
+#logo {
+    height: 20px;
+    margin-top: -6px;
+}
+
+.nav-item img {
+    background-color: white;
+    vertical-align: sub;
+}
+
+.bn-ad-img {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    #navbar-messages::after,
+    #navbar-friend-requests::after,
+    #navbar-notifications::after {
+        display: none;
+    }
+}
