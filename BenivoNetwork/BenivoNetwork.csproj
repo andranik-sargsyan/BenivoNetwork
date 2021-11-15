@@ -165,9 +165,15 @@
     <Content Include="Content\Images\ad-big.gif" />
     <Content Include="Content\Images\ad-small.gif" />
     <Content Include="Content\Images\user.png" />
+    <Content Include="Content\Scripts\login-register.js" />
+    <Content Include="Content\Scripts\messages.js" />
     <Content Include="Content\Scripts\index.js" />
     <Content Include="Content\Scripts\user-profile.js" />
     <Content Include="Content\Styles\common.css" />
+    <Content Include="Content\Styles\messages.css" />
+    <Content Include="Content\Styles\login-register.css" />
+    <Content Include="Content\Styles\not-found.css" />
+    <Content Include="Content\Styles\search.css" />
     <Content Include="Content\Styles\user-profile.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\Images\logo.png" />
@@ -199,6 +205,7 @@
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.esm.min.js.map" />
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.js.map" />
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.min.js.map" />
+    <Content Include="Templates\not-found.html" />
     <Content Include="Templates\user-profile.html" />
     <Content Include="Templates\search.html" />
     <Content Include="Templates\messages.html" />

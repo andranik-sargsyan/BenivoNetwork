@@ -12,6 +12,12 @@
     vertical-align: sub;
 }
 
+.bn-profile-pic {
+    width: 20px;
+    height: 20px;
+    vertical-align: bottom;
+}
+
 .bn-ad-img {
     width: 100%;
 }
