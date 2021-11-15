@@ -1,1 +1,9 @@
-﻿
+﻿#bn-main-logo {
+    background-color: #212529;
+    padding: 10px;
+}
+
+#bn-form-login,
+#bn-form-register {
+    background-color: #eee;
+}
