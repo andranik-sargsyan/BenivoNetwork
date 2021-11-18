@@ -104,66 +104,81 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-12">
-                            <div id="bn-posts">
-                                <div class="bn-post">
-                                    <div class="bn-post-content">
-                                        <figure>
-                                            <blockquote class="blockquote">
-                                                <p>A well-known quote, contained in a blockquote element.</p>
-                                            </blockquote>
-                                            <figcaption class="blockquote-footer">
-                                                on <cite>2021-09-21 00:43</cite>
-                                            </figcaption>
-                                        </figure>
-                                    </div>
-                                    <div class="bn-post-footer">
-                                        <span class="bn-like">
-                                            <span>Like </span><span>👍</span>
-                                        </span>
-                                        <span class="bn-like-count" title="User 1, User 2">45</span>
-                                        <!--title - dynamic-->
-                                        |
-                                        <span class="bn-comment-count">8 Comments</span>
-                                    </div>
-                                    <div class="bn-comments-wrapper">
-                                        <div class="bn-comments">
-                                            <div class="bn-comment">
-                                                <a href="user-profile.html" class="bn-profile-link">
-                                                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
-                                                    <span>Lorem Ipsum</span>
-                                                </a>
-                                                <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
-                                                <span class="bn-like">
-                                                    <span>Like </span><span>👍</span>
-                                                </span>
-                                                <span class="bn-like-count" title="User 1, User 2">2</span>
+                            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="bn-posts-tab" data-toggle="tab" href="#bn-posts-tab" role="tab" aria-controls="bn-posts-tab" aria-selected="true">Posts</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="bn-friends-tab" data-toggle="tab" href="#bn-friends-tab" role="tab" aria-controls="bn-friends-tab" aria-selected="false">Friends</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content">
+                                <div class="tab-pane fade show active" id="bn-posts-tab" role="tabpanel" aria-labelledby="bn-posts-tab">
+                                    <div id="bn-posts" class="mt-2">
+                                        <div class="bn-post">
+                                            <div class="bn-post-content">
+                                                <figure>
+                                                    <blockquote class="blockquote">
+                                                        <p>A well-known quote, contained in a blockquote element.</p>
+                                                    </blockquote>
+                                                    <figcaption class="blockquote-footer">
+                                                        on <cite>2021-09-21 00:43</cite>
+                                                    </figcaption>
+                                                </figure>
                                             </div>
-                                            <div class="bn-comment">
-                                                <a href="user-profile.html" class="bn-profile-link">
-                                                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
-                                                    <span>Lorem Ipsum</span>
-                                                </a>
-                                                <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                                            <div class="bn-post-footer">
                                                 <span class="bn-like">
                                                     <span>Like </span><span>👍</span>
                                                 </span>
-                                                <span class="bn-like-count" title=""></span>
+                                                <span class="bn-like-count" title="User 1, User 2">45</span>
+                                                <!--title - dynamic-->
+                                                |
+                                                <span class="bn-comment-count">8 Comments</span>
                                             </div>
-                                            <div class="bn-comment">
-                                                <a href="user-profile.html" class="bn-profile-link">
-                                                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
-                                                    <span>Lorem Ipsum</span>
-                                                </a>
-                                                <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
-                                                <span class="bn-like">
-                                                    <span>Like </span><span>👍</span>
-                                                </span>
-                                                <span class="bn-like-count" title=""></span>
+                                            <div class="bn-comments-wrapper">
+                                                <div class="bn-comments">
+                                                    <div class="bn-comment">
+                                                        <a href="user-profile.html" class="bn-profile-link">
+                                                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                                            <span>Lorem Ipsum</span>
+                                                        </a>
+                                                        <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                                                        <span class="bn-like">
+                                                            <span>Like </span><span>👍</span>
+                                                        </span>
+                                                        <span class="bn-like-count" title="User 1, User 2">2</span>
+                                                    </div>
+                                                    <div class="bn-comment">
+                                                        <a href="user-profile.html" class="bn-profile-link">
+                                                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                                            <span>Lorem Ipsum</span>
+                                                        </a>
+                                                        <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                                                        <span class="bn-like">
+                                                            <span>Like </span><span>👍</span>
+                                                        </span>
+                                                        <span class="bn-like-count" title=""></span>
+                                                    </div>
+                                                    <div class="bn-comment">
+                                                        <a href="user-profile.html" class="bn-profile-link">
+                                                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                                            <span>Lorem Ipsum</span>
+                                                        </a>
+                                                        <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                                                        <span class="bn-like">
+                                                            <span>Like </span><span>👍</span>
+                                                        </span>
+                                                        <span class="bn-like-count" title=""></span>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
+                                        <!--ADD load more link or load on scroll or both one by one-->
                                     </div>
                                 </div>
-                                <!--ADD load more link or load on scroll or both one by one-->
+                                <div class="tab-pane fade" id="bn-friends-tab" role="tabpanel" aria-labelledby="bn-friends-tab">
+                                    ...
+                                </div>
                             </div>
                         </div>
                     </div>
