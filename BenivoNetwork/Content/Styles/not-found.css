@@ -1,1 +1,8 @@
-﻿
+﻿#bn-not-found {
+    display: inline-block;
+    border: solid 2px #444;
+    height: 200px;
+    width: 200px;
+    line-height: 180px;
+    font-size: 80px;
+}

@@ -60,7 +60,7 @@
                                 <li><a class="dropdown-item" href="#">Notification 1</a></li>
                                 <li><a class="dropdown-item" href="#">Notification 2</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="#">See More...<!--FIX/NEW PAGE/ENTITY/--></a></li>
+                                <li><a class="dropdown-item" href="notifications.html">See More...<!--FIX/NEW PAGE/ENTITY/--></a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -100,20 +100,22 @@
                             <b>Last Visit</b> 01/01/2021<br />
                             <hr />
                             <input type="button" class="btn btn-secondary" value="Add Friend | Remove Friend" /><!--FIX-->
+                            <input type="button" class="btn btn-secondary" value="Edit" /><!--FIX-->
+                            <input type="button" class="btn btn-secondary" value="Save" /><!--FIX-->
                         </div>
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-12">
-                            <ul class="nav nav-tabs" id="myTab" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" id="bn-posts-tab" data-toggle="tab" href="#bn-posts-tab" role="tab" aria-controls="bn-posts-tab" aria-selected="true">Posts</a>
+                            <ul class="nav nav-tabs" id="bn-tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link active" id="bn-posts-tab" data-bs-toggle="tab" data-bs-target="#posts-tab" type="button" role="tab" aria-controls="posts-tab" aria-selected="true">Posts</button>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" id="bn-friends-tab" data-toggle="tab" href="#bn-friends-tab" role="tab" aria-controls="bn-friends-tab" aria-selected="false">Friends</a>
+                                <li class="nav-item" role="presentation">
+                                    <button class="nav-link" id="bn-friends-tab" data-bs-toggle="tab" data-bs-target="#friends-tab" type="button" role="tab" aria-controls="friends-tab" aria-selected="false">Friends</button>
                                 </li>
                             </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane fade show active" id="bn-posts-tab" role="tabpanel" aria-labelledby="bn-posts-tab">
+                            <div class="tab-content" id="bn-tab-content">
+                                <div class="tab-pane fade show active" id="posts-tab" role="tabpanel" aria-labelledby="bn-posts-tab">
                                     <div id="bn-posts" class="mt-2">
                                         <div class="bn-post">
                                             <div class="bn-post-content">
@@ -176,8 +178,29 @@
                                         <!--ADD load more link or load on scroll or both one by one-->
                                     </div>
                                 </div>
-                                <div class="tab-pane fade" id="bn-friends-tab" role="tabpanel" aria-labelledby="bn-friends-tab">
-                                    ...
+                                <div class="tab-pane fade" id="friends-tab" role="tabpanel" aria-labelledby="bn-friends-tab">
+                                    <div id="bn-friends" class="mt-2">
+                                        <div class="bn-profile-box">
+                                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                            <span>
+                                                <a href="user-profile.html">Lorem Ipsum</a><br />
+                                                <span><b>Birthday:</b> 16.07.1990</span><br />
+                                                <span><b>Gender:</b> Male</span><br />
+                                                <input type="button" class="btn btn-secondary" value="Add Friend | Remove Friend" /><!--FIX-->
+                                                <!--Other -->
+                                            </span>
+                                        </div>
+                                        <div class="bn-profile-box">
+                                            <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                            <span>
+                                                <a href="user-profile.html">Lorem Ipsum</a><br />
+                                                <span><b>Birthday:</b> 16.07.1990</span><br />
+                                                <span><b>Gender:</b> Male</span><br />
+                                                <input type="button" class="btn btn-secondary" value="Add Friend | Remove Friend" /><!--FIX-->
+                                                <!--Other -->
+                                            </span>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

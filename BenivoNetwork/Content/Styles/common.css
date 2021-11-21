@@ -2,11 +2,18 @@
 
 main > .container {
     padding-top: 80px;
+    padding-bottom: 20px;
 }
 
 #logo {
     height: 20px;
     margin-top: -6px;
+}
+
+.nav-link,
+.nav-link:hover,
+.nav-link:focus {
+    color: #444;
 }
 
 .nav-item img {
@@ -78,3 +85,41 @@ main > .container {
     background-color: white;
     border-radius: 4px;
 }
+
+.bn-profile-box {
+    background-color: white;
+    border: solid 1px #dee2e6;
+    padding: 10px;
+}
+
+    .bn-profile-box a {
+        font-weight: bold;
+        color: #444;
+    }
+
+    .bn-profile-box .bn-profile-pic {
+        width: 100px;
+        height: 100px;
+        vertical-align: top;
+        display: inline-block;
+        margin-right: 5px;
+    }
+
+    .bn-profile-box span {
+        display: inline-block;
+    }
+
+.bn-online-status {
+    display: inline-block;
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+}
+
+    .bn-online-status.bn-online {
+        background-color: green;
+    }
+
+    .bn-online-status.bn-offline {
+        background-color: gray;
+    }

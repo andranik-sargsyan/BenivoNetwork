@@ -171,6 +171,7 @@
     <Content Include="Content\Scripts\index.js" />
     <Content Include="Content\Scripts\user-profile.js" />
     <Content Include="Content\Styles\common.css" />
+    <Content Include="Content\Styles\notifications.css" />
     <Content Include="Content\Styles\test.css" />
     <Content Include="Content\Styles\messages.css" />
     <Content Include="Content\Styles\login-register.css" />
@@ -207,6 +208,7 @@
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.esm.min.js.map" />
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.js.map" />
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.min.js.map" />
+    <Content Include="Templates\notifications.html" />
     <Content Include="Templates\test.html" />
     <Content Include="Templates\not-found.html" />
     <Content Include="Templates\user-profile.html" />

@@ -12,46 +12,13 @@
 .bn-profile-box {
     display: none;
     background-color: white;
-}
-
-    .bn-profile-box a {
-        font-weight: bold;
-        color: #444;
-    }
-
-.bn-friend:hover .bn-profile-box {
-    display: block;
+    width: 400px;
     position: absolute;
     left: -401px;
     top: 0px;
-    width: 400px;
-    border: solid 1px gray;
-    padding: 10px;
     cursor: default;
 }
 
-.bn-profile-box .bn-profile-pic {
-    width: 100px;
-    height: 100px;
-    vertical-align: top;
-    display: inline-block;
+.bn-friend:hover .bn-profile-box {
+    display: block;
 }
-
-.bn-profile-box span {
-    display: inline-block;
-}
-
-.bn-online-status {
-    display: inline-block;
-    height: 10px;
-    width: 10px;
-    border-radius: 50%;
-}
-
-    .bn-online-status.bn-online {
-        background-color: green;
-    }
-
-    .bn-online-status.bn-offline {
-        background-color: gray;
-    }
