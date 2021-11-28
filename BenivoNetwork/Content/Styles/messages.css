@@ -1,1 +1,76 @@
-﻿
+﻿#bn-profiles {
+    min-height: 75px;
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.bn-profile {
+    cursor: pointer;
+    transition: all ease 0.5s;
+}
+
+    .bn-profile:hover {
+        background-color: #eeeeee80;
+        transition: all ease 0.5s;
+    }
+
+    .bn-profile.bn-active {
+        background-color: #eee;
+    }
+
+    .bn-profile > span.bn-message-preview {
+        display: inline-block;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+#bn-messages {
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.bn-message {
+    max-width: 80%;
+}
+
+    .bn-message.bn-from {
+        float: left;
+        background-color: #eee;
+    }
+
+    .bn-message.bn-to {
+        float: right;
+        background-color: #555;
+        color: white;
+        border-color: #444 !important;
+        margin-right: 2px;
+    }
+
+        .bn-message.bn-from + .bn-to,
+        .bn-message.bn-to + .bn-from {
+            margin-top: 5px;
+        }
+
+        .bn-message.bn-from + .bn-from,
+        .bn-message.bn-to + .bn-to {
+            margin-top: 1px;
+        }
+
+#bn-message-input-wrapper {
+    height: 60px;
+}
+
+#bn-message-text {
+    width: 90%;
+    height: 100%;
+    float: left;
+}
+
+#bn-btn-send {
+    width: calc(10% - 2px);
+    height: 100%;
+    margin-left: 2px;
+    float: right;
+}

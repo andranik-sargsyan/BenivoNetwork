@@ -81,22 +81,54 @@
     <main class="flex-shrink-0">
         <div class="container">
             <div class="row content">
-                <div class="col-md-4">
-                    People (with last message preview)
+                <div class="col-md-3">
+                    <h3>People</h3>
+                    <div id="bn-profiles">
+                        <div class="bn-profile border p-2 mb-1 me-1">
+                            <a href="user-profile.html" class="bn-profile-link" target="_blank">
+                                <!--FIX-->
+                                <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic">
+                                <span>Lorem Ipsum</span>
+                            </a>
+                            <br />
+                            <span class="bn-message-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        </div>
+                        <div class="bn-profile border p-2 mb-1 me-1">
+                            <a href="user-profile.html" class="bn-profile-link" target="_blank">
+                                <!--FIX-->
+                                <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic">
+                                <span>Lorem Ipsum</span>
+                            </a>
+                            <br />
+                            <span class="bn-message-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-8">
-                    Message
-                    <div id="wrapper">
-                        ...
-                        <span class="my-span s1">
-                            asdasd 2
-                            <a href="#">asdsad</a>
-                        </span>
-                        <span class="my-span s2">asdasd 6 </span>
-                        <span class="my-span s3">asdasd 1</span>
-                        <span class="my-span s4">asdasd 0</span>
-                        <i class="my-span s3">asdas123123d 1</i>
-                        <a href="#">asdsad</a>
+                <div class="col-md-9">
+                    <h3>Messages</h3>
+                    <div id="bn-messages">
+                        <div class="bn-message bn-from border p-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+                        <div class="bn-message bn-from border p-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+                        <div class="bn-message bn-from border p-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+                        <div class="bn-message bn-to border p-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+                        <div class="bn-message bn-to border p-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+                        <div class="bn-message bn-from border p-2">
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        </div>
+                    </div>
+                    <div id="bn-message-input-wrapper" class="mt-1">
+                        <textarea id="bn-message-text" class="form-control" placeholder="Your message here..."></textarea>
+                        <button id="bn-btn-send" class="btn btn-secondary" title="Send">➤</button>
                     </div>
                 </div>
             </div>
