@@ -1,31 +1,173 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "Home";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<link href="~/Content/Styles/index.css" rel="stylesheet" type="text/css" />
+<script src="~/Content/Scripts/index.js" type="text/javascript"></script>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+<div class="row content">
+    <div class="col-md-2">
+        <img class="d-none d-md-block bn-ad-img" src="../Content/Images/ad-big.gif" alt="McDonalds Ad" />
+        <img class="d-block d-md-none bn-ad-img mb-2" src="../Content/Images/ad-small.gif" alt="McDonalds Ad" />
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    <div class="col-md-8">
+        <h3>News Feed</h3>
+        <div id="bn-posts">
+            <div class="bn-post">
+                <div class="bn-post-content">
+                    <figure>
+                        <blockquote class="blockquote">
+                            <p>A well-known quote, contained in a blockquote element.</p>
+                        </blockquote>
+                        <figcaption class="blockquote-footer">
+                            By
+                            <a href="user-profile.html" class="bn-profile-link">
+                                <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                <span>Lorem Ipsum</span>
+                            </a>
+                            on <cite>2021-09-21 00:43</cite>
+                        </figcaption>
+                    </figure>
+                </div>
+                <div class="bn-post-footer">
+                    <span class="bn-like">
+                        <span>Like </span><span>👍</span>
+                    </span>
+                    <span class="bn-like-count" title="User 1, User 2">45</span>
+                    <!--title - dynamic-->
+                    |
+                    <span class="bn-comment-count">8 Comments</span>
+                </div>
+                <div class="bn-comments-wrapper">
+                    <textarea class="form-control" placeholder="Your comment here..."></textarea>
+                    <div class="bn-comments">
+                        <div class="bn-comment">
+                            <a href="user-profile.html" class="bn-profile-link">
+                                <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                <span>Lorem Ipsum</span>
+                            </a>
+                            <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                            <span class="bn-like">
+                                <span>Like </span><span>👍</span>
+                            </span>
+                            <span class="bn-like-count" title="User 1, User 2">2</span>
+                        </div>
+                        <div class="bn-comment">
+                            <a href="user-profile.html" class="bn-profile-link">
+                                <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                <span>Lorem Ipsum</span>
+                            </a>
+                            <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                            <span class="bn-like">
+                                <span>Like </span><span>👍</span>
+                            </span>
+                            <span class="bn-like-count" title=""></span>
+                        </div>
+                        <div class="bn-comment">
+                            <a href="user-profile.html" class="bn-profile-link">
+                                <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                                <span>Lorem Ipsum</span>
+                            </a>
+                            <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
+                            <span class="bn-like">
+                                <span>Like </span><span>👍</span>
+                            </span>
+                            <span class="bn-like-count" title=""></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--ADD load more link or load on scroll or both one by one-->
+        </div>
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+    <div class="col-md-2 sidenav">
+        <h3>Friends</h3>
+        <div id="bn-firends">
+            <div class="bn-friend">
+                <a href="user-profile.html" class="bn-profile-link">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic">
+                    <span>Lorem Ipsum</span>
+                </a>
+                <span class="bn-online-status bn-online" title="20:08"></span>
+                <!--20:08 - dynamic-->
+                <div class="bn-profile-box">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                    <span>
+                        <a href="user-profile.html">Lorem Ipsum</a><br />
+                        <span><b>Birthday:</b> 16/07/1990</span><br />
+                        <span><b>Gender:</b> Male</span><br />
+                        <!--Other -->
+                    </span>
+                </div>
+            </div>
+            <div class="bn-friend">
+                <a href="user-profile.html" class="bn-profile-link">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic">
+                    <span>Lorem Ipsum</span>
+                </a>
+                <span class="bn-online-status bn-online" title="20:07"></span>
+                <!--20:07 - dynamic-->
+                <div class="bn-profile-box">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                    <span>
+                        <a href="user-profile.html">Lorem Ipsum</a><br />
+                        <span><b>Birthday:</b> 16/07/1990</span><br />
+                        <span><b>Gender:</b> Male</span><br />
+                        <!--Other -->
+                    </span>
+                </div>
+            </div>
+            <div class="bn-friend">
+                <a href="user-profile.html" class="bn-profile-link">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic">
+                    <span>Lorem Ipsum</span>
+                </a>
+                <span class="bn-online-status bn-offline" title="5 minutes ago"></span>
+                <!--5 - dynamic-->
+                <div class="bn-profile-box">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                    <span>
+                        <a href="user-profile.html">Lorem Ipsum</a><br />
+                        <span><b>Birthday:</b> 16/07/1990</span><br />
+                        <span><b>Gender:</b> Male</span><br />
+                        <!--Other -->
+                    </span>
+                </div>
+            </div>
+            <div class="bn-friend">
+                <a href="user-profile.html" class="bn-profile-link">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic">
+                    <span>Lorem Ipsum</span>
+                </a>
+                <span class="bn-online-status bn-offline" title="8 minutes ago"></span>
+                <!--8 - dynamic-->
+                <div class="bn-profile-box">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                    <span>
+                        <a href="user-profile.html">Lorem Ipsum</a><br />
+                        <span><b>Birthday:</b> 16/07/1990</span><br />
+                        <span><b>Gender:</b> Male</span><br />
+                        <!--Other -->
+                    </span>
+                </div>
+            </div>
+            <div class="bn-friend">
+                <a href="user-profile.html" class="bn-profile-link">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic">
+                    <span>Lorem Ipsum</span>
+                </a>
+                <span class="bn-online-status bn-offline" title="14:10 dd.MM.yyyy"></span>
+                <!--14:10 dd.MM.yyyy - dynamic-->
+                <div class="bn-profile-box">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic" />
+                    <span>
+                        <a href="user-profile.html">Lorem Ipsum</a><br />
+                        <span><b>Birthday:</b> 16/07/1990</span><br />
+                        <span><b>Gender:</b> Male</span><br />
+                        <!--Other -->
+                    </span>
+                </div>
+            </div>
+        </div>
     </div>
 </div>

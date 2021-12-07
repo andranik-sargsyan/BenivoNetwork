@@ -13,16 +13,17 @@ namespace BenivoNetwork.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult UserProfile(int id)
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.FullName = "Andranik Sargsyan";
 
-            return View();
-        }
+            //Request["key"]
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+            //read Request.Headers
+            //read Request.Cookies
+
+            //Response.Headers.Add
+            //Response.Cookies.Add
 
             return View();
         }

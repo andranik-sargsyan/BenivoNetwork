@@ -1,42 +1,93 @@
 ﻿<!DOCTYPE html>
-<html>
+<html class="h-100">
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewBag.Title - BenivoNetwork</title>
+    <link href="~/favicon.ico" rel="shortcut icon" />
+    <link href="~/Content/bootstrap.5.1.2/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/jquery.3.6.0/jquery-3.6.0.min.js" type="text/javascript"></script>
+    <script src="~/Content/bootstrap.5.1.2/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+    <link href="~/Content/Styles/common.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/Scripts/common.js" type="text/javascript"></script>
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
+<body class="d-flex flex-column h-100">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="/">
+                    <img id="logo" src="~/Content/Images/logo.png" alt="Benivo Network" />
+                </a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <div class="navbar-collapse collapse" id="navbar-collapse">
+                    <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                        <li class="nav-item">
+                            <input class="form-control me-2 mt-2 mt-md-0" type="search" placeholder="Search..." aria-label="Search...">
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav mb-2 mb-md-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbar-messages" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Messages">💬<span class="d-md-none"> Messages</span></a>
+                            <ul class="dropdown-menu" aria-labelledby="navbar-messages">
+                                <!--PLACEHOLDER-NO ITEMS-->
+                                <!--RED ICON, IF ANY-->
+                                <li><a class="dropdown-item" href="#"><!--LINK TO MESSAGES -> SELECTED-->Message 1...</a></li>
+                                <li><a class="dropdown-item" href="#"><!--LINK TO MESSAGES -> SELECTED-->Message 2...</a></li>
+                                <li><a class="dropdown-item" href="#"><!--LINK TO MESSAGES -> SELECTED-->Message 3...</a></li>
+                                <li><a class="dropdown-item" href="#"><!--LINK TO MESSAGES -> SELECTED-->Message 4...</a></li>
+                                <li><a class="dropdown-item" href="#"><!--LINK TO MESSAGES -> SELECTED-->Message 5...</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="messages.html">See All Messages...<!--FIX/NEW PAGE/ENTITY/--></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbar-friend-requests" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Friend Requests">🤝<span class="d-md-none"> Friend Requests</span></a>
+                            <ul class="dropdown-menu" aria-labelledby="navbar-friend-requests">
+                                <!--PLACEHOLDER-NO ITEMS-->
+                                <!--RED ICON, IF ANY-->
+                                <li><a class="dropdown-item disabled" href="#">No Pending Requests</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbar-notifications" role="button" data-bs-toggle="dropdown" aria-expanded="false" title="Notifications">🌎<span class="d-md-none"> Notifications</span></a>
+                            <ul class="dropdown-menu" aria-labelledby="navbar-notifications">
+                                <!--PLACEHOLDER-NO ITEMS-->
+                                <!--RED ICON, IF ANY-->
+                                <li><a class="dropdown-item" href="#">Notification 1</a></li>
+                                <li><a class="dropdown-item" href="#">Notification 2</a></li>
+                                <li class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="notifications.html">See More...<!--FIX/NEW PAGE/ENTITY/--></a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle active" href="#" id="navbar-profile" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <img class="bn-profile-pic" src="~/Content/Images/user.png" alt="User Profile Pic"><!--FIX--> Andranik<!--DYNAMIC-->
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbar-profile">
+                                <li><a class="dropdown-item" href="~/Home/UserProfile">🧑‍ Profile</a></li>
+                                <li><a class="dropdown-item" href="login-register.html"><!--FIX-->🚪 Logout<!--FIX--></a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
+        </nav>
+    </header>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+    <main class="flex-shrink-0">
+        <div class="container">
+            @RenderBody()
+        </div>
+    </main>
+
     @RenderSection("scripts", required: false)
+
+    <footer id="my-footer" class="footer mt-auto py-3 bg-light">
+        <div class="container">
+            <span class="text-muted">Copyright © @DateTime.Now.Year by Andranik Sargsyan</span>
+        </div>
+    </footer>
 </body>
 </html>
