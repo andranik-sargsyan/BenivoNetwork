@@ -58,6 +58,18 @@
             margin-top: 1px;
         }
 
+    .bn-message .blockquote-footer {
+        margin-bottom: initial;
+    }
+
+        .bn-message .blockquote-footer:before {
+            content: "";
+        }
+
+    .bn-message.bn-to .blockquote-footer {
+        color: #b1b1b1;
+    }
+
 #bn-message-input-wrapper {
     height: 60px;
 }

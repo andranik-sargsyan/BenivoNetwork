@@ -208,6 +208,7 @@
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.js.map" />
     <Content Include="Content\bootstrap.5.1.2\js\bootstrap.min.js.map" />
     <Content Include="Templates\notifications.html" />
+    <Content Include="Templates\post.html" />
     <Content Include="Templates\test.html" />
     <Content Include="Templates\not-found.html" />
     <Content Include="Templates\user-profile.html" />
