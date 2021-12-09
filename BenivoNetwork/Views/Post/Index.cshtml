@@ -1,0 +1,18 @@
+﻿@using BenivoNetwork.Models
+
+@model IEnumerable<PostModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach (var post in Model)
+{
+    <div>
+        @post.ID - @post.Text - @post.DateCreated - @post.UserEmail
+    </div>
+}
+
+<a href="~/Post/Create">Create</a>

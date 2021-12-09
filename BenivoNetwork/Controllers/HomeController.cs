@@ -13,7 +13,7 @@ namespace BenivoNetwork.Controllers
             return View();
         }
 
-        public ActionResult UserProfile(int id)
+        public ActionResult UserProfile(int? id)
         {
             ViewBag.FullName = "Andranik Sargsyan";
 
