@@ -1,0 +1,20 @@
+﻿@using BenivoNetwork.Models
+
+@model PostModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form action="~/Post/Edit" method="post">
+    @Html.HiddenFor(m => m.ID)
+    @Html.TextBoxFor(m => m.Text)
+    <br />
+    By @Model.UserEmail on @Model.DateCreated
+    <br />
+    <br />
+    <input type="submit" value="Save" />
+    @Html.ActionLink("Cancel", "Index", "Post")
+</form>

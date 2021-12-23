@@ -1,0 +1,39 @@
+﻿@using BenivoNetwork.Models
+
+@model HomeModel
+
+@{
+    ViewBag.Title = "Test";
+}
+
+<h2>Test</h2>
+
+@using (Html.BeginForm("Test", "Home", FormMethod.Post))
+{
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Count)</div> <div class="col-md-10">@Html.EditorFor(m => m.Count)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Text) *</div> <div class="col-md-10">@Html.EditorFor(m => m.Text)</div>
+        <div class="text-danger">
+            @Html.ValidationMessageFor(m => m.Text)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.IsImported)</div> <div class="col-md-10">@Html.EditorFor(m => m.IsImported)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.DayType) *</div> <div class="col-md-10">@Html.EditorFor(m => m.DayType)</div>
+        <div class="text-danger">
+            @Html.ValidationMessageFor(m => m.DayType)
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-2">@Html.LabelFor(m => m.Names)</div> <div class="col-md-10">@Html.EditorFor(m => m.Names)</div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <input type="submit" class="btn btn-primary" />
+        </div>
+    </div>
+}

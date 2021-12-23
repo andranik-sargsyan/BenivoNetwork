@@ -1,4 +1,5 @@
 ﻿using BenivoNetwork.DAL;
+using BenivoNetwork.Filters;
 using BenivoNetwork.Models;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace BenivoNetwork.Controllers
 
             using (var context = new BenivoNetworkEntities())
             {
-                var posts = context.Posts.Where(p => p.UserID == 1).ToList();
+                var posts = context.Posts.ToList();
 
                 model = posts
                     .Select(p => new PostModel
@@ -50,6 +51,65 @@ namespace BenivoNetwork.Controllers
                     Text = model.Text,
                     DateCreated = DateTime.Now
                 });
+
+                context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Edit(int id)
+        {
+            PostModel model;
+
+            using (var context = new BenivoNetworkEntities())
+            {
+                var post = context.Posts.FirstOrDefault(p => p.ID == id);
+
+                model = new PostModel
+                {
+                    ID = post.ID,
+                    Text = post.Text,
+                    DateCreated = post.DateCreated,
+                    UserEmail = post.User.Email
+                };
+            }
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(PostModel model)
+        {
+            using (var context = new BenivoNetworkEntities())
+            {
+                var post = context.Posts.FirstOrDefault(p => p.ID == model.ID);
+
+                post.Text = model.Text;
+
+                context.Entry(post).State = System.Data.Entity.EntityState.Modified;
+
+                context.SaveChanges();
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Delete(int id)
+        {
+            return View(new PostModel { ID = id });
+        }
+
+        [HttpPost]
+        public ActionResult Delete(PostModel model)
+        {
+            using (var context = new BenivoNetworkEntities())
+            {
+                var post = context.Posts.FirstOrDefault(p => p.ID == model.ID);
+
+                context.Posts.Remove(post);
 
                 context.SaveChanges();
             }

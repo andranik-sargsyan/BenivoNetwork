@@ -68,7 +68,7 @@
                                 <img class="bn-profile-pic" src="~/Content/Images/user.png" alt="User Profile Pic"><!--FIX--> Andranik<!--DYNAMIC-->
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbar-profile">
-                                <li><a class="dropdown-item" href="~/Home/UserProfile">🧑‍ Profile</a></li>
+                                <li>@Html.ActionLink("🧑 Profile", "UserProfile", "Home", null, new { @class = "dropdown-item" })</li>
                                 <li><a class="dropdown-item" href="login-register.html"><!--FIX-->🚪 Logout<!--FIX--></a></li>
                             </ul>
                         </li>

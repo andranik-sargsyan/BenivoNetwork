@@ -8,11 +8,30 @@
 
 <h2>Index</h2>
 
-@foreach (var post in Model)
-{
-    <div>
-        @post.ID - @post.Text - @post.DateCreated - @post.UserEmail
-    </div>
-}
-
 <a href="~/Post/Create">Create</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Text</th>
+            <th>Date Created</th>
+            <th>User Email</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    @foreach (var post in Model)
+    {
+        <tr>
+            <td>@post.ID</td>
+            <td>@post.Text</td>
+            <td>@post.DateCreated</td>
+            <td>@post.UserEmail</td>
+            <td>
+                <a href="~/Post/Edit/@post.ID">Edit</a>
+                |
+                <a href="~/Post/Delete/@post.ID">Delete</a>
+            </td>
+        </tr>
+    }
+</table>

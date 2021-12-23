@@ -1,1 +1,9 @@
-﻿
+﻿.bn-search-result-comment {
+    background-color: #eee;
+    border: solid 1px #ddd;
+    padding: 10px;
+}
+
+.bn-search-result-comment p {
+    margin-bottom: 0px;
+}
