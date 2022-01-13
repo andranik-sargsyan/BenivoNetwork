@@ -25,7 +25,12 @@ namespace BenivoNetwork.DAL
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Friendship> Friendships { get; set; }
+        public virtual DbSet<Message> Messages { get; set; }
+        public virtual DbSet<Notification> Notifications { get; set; }
         public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<Reaction> Reactions { get; set; }
         public virtual DbSet<User> Users { get; set; }
     }
 }

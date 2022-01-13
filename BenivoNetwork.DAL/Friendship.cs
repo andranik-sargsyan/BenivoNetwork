@@ -12,13 +12,14 @@ namespace BenivoNetwork.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class Post
+    public partial class Friendship
     {
         public int ID { get; set; }
-        public int UserID { get; set; }
-        public string Text { get; set; }
-        public System.DateTime DateCreated { get; set; }
+        public int FirstUserID { get; set; }
+        public int SecondUserID { get; set; }
+        public bool IsAccepted { get; set; }
     
-        public virtual User User { get; set; }
+        public virtual User FirstUser { get; set; }
+        public virtual User SecondUser { get; set; }
     }
 }

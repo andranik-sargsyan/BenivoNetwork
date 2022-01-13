@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="955f15d9d43842c2a8f5203ea021db69" Name="Diagram1">
+        <EntityTypeShape EntityType="BenivoNetworkModel.Comment" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BenivoNetworkModel.Friendship" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="BenivoNetworkModel.Message" Width="1.5" PointX="3" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BenivoNetworkModel.Notification" Width="1.5" PointX="7.5" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BenivoNetworkModel.Post" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BenivoNetworkModel.Reaction" Width="1.5" PointX="10.5" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BenivoNetworkModel.User" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Comment_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Comment_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Notification_Comment" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Reaction_Comment" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Friendship_User_First" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Friendship_User_Second" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Message_User_From" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Message_User_To" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Reaction_Message" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Notification_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Notification_Reaction" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Notification_User_From" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Notification_UserTo" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Post_User" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Reaction_Post" ManuallyRouted="false" />
+        <AssociationConnector Association="BenivoNetworkModel.FK_Reaction_User" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

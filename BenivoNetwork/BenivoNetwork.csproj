@@ -142,114 +142,81 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\PostController.cs" />
-    <Compile Include="DAL\BNModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BNModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\BNModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BNModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\BNModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BNModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\Post.cs">
-      <DependentUpon>BNModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DAL\User.cs">
-      <DependentUpon>BNModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Enums\TestEnum.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeModel.cs" />
-    <Compile Include="Models\PostModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-grid.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-grid.min.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-grid.rtl.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-grid.rtl.min.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-reboot.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-reboot.min.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-reboot.rtl.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-reboot.rtl.min.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-utilities.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-utilities.min.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-utilities.rtl.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-utilities.rtl.min.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap.min.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap.rtl.css" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap.rtl.min.css" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.bundle.js" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.bundle.min.js" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.esm.js" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.esm.min.js" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.js" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.min.js" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-grid.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-grid.min.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-grid.rtl.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-grid.rtl.min.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-reboot.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-reboot.min.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-reboot.rtl.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-utilities.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-utilities.min.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-utilities.rtl.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap.min.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap.rtl.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap.rtl.min.css" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.bundle.js" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.bundle.min.js" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.esm.js" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.esm.min.js" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.js" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.min.js" />
     <Content Include="Content\Images\ad-big.gif" />
     <Content Include="Content\Images\ad-small.gif" />
     <Content Include="Content\Images\user.png" />
-    <Content Include="Content\Scripts\test.js" />
-    <Content Include="Content\Scripts\login-register.js" />
-    <Content Include="Content\Scripts\messages.js" />
-    <Content Include="Content\Scripts\index.js" />
-    <Content Include="Content\Scripts\user-profile.js" />
-    <Content Include="Content\Styles\common.css" />
-    <Content Include="Content\Styles\notifications.css" />
-    <Content Include="Content\Styles\test.css" />
-    <Content Include="Content\Styles\messages.css" />
-    <Content Include="Content\Styles\login-register.css" />
-    <Content Include="Content\Styles\not-found.css" />
-    <Content Include="Content\Styles\search.css" />
-    <Content Include="Content\Styles\user-profile.css" />
-    <Content Include="DAL\BNModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>BNModel.Context.cs</LastGenOutput>
-      <DependentUpon>BNModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="DAL\BNModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>BNModel.edmx</DependentUpon>
-      <LastGenOutput>BNModel.cs</LastGenOutput>
-    </Content>
+    <Content Include="Scripts\test.js" />
+    <Content Include="Scripts\login-register.js" />
+    <Content Include="Scripts\messages.js" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\user-profile.js" />
+    <Content Include="Styles\common.css" />
+    <Content Include="Styles\notifications.css" />
+    <Content Include="Styles\test.css" />
+    <Content Include="Styles\messages.css" />
+    <Content Include="Styles\login-register.css" />
+    <Content Include="Styles\not-found.css" />
+    <Content Include="Styles\search.css" />
+    <Content Include="Styles\user-profile.css" />
     <Content Include="favicon.ico" />
     <Content Include="Content\Images\logo.png" />
-    <Content Include="Content\jquery.3.6.0\jquery-3.6.0.min.js" />
-    <Content Include="Content\Scripts\common.js" />
-    <Content Include="Content\Styles\index.css" />
+    <Content Include="Content\Plugins\jquery.3.6.0\jquery-3.6.0.min.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Styles\index.css" />
     <Content Include="Global.asax" />
     <Content Include="libman.json" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-grid.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-grid.min.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-grid.rtl.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-grid.rtl.min.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-reboot.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-reboot.min.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-reboot.rtl.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-reboot.rtl.min.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-utilities.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-utilities.min.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-utilities.rtl.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap-utilities.rtl.min.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap.rtl.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\css\bootstrap.rtl.min.css.map" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.bundle.js.map" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.bundle.min.js.map" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.esm.js.map" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.esm.min.js.map" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.js.map" />
-    <Content Include="Content\bootstrap.5.1.2\js\bootstrap.min.js.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-grid.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-grid.min.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-grid.rtl.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-reboot.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-reboot.min.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-utilities.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-utilities.min.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap.min.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap.rtl.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap.rtl.min.css.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.bundle.js.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.bundle.min.js.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.esm.js.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.esm.min.js.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.js.map" />
+    <Content Include="Content\Plugins\bootstrap.5.1.2\js\bootstrap.min.js.map" />
     <Content Include="Templates\notifications.html" />
     <Content Include="Templates\post.html" />
     <Content Include="Templates\test.html" />
@@ -276,24 +243,24 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <EntityDeploy Include="DAL\BNModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>BNModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="DAL\BNModel.edmx.diagram">
-      <DependentUpon>BNModel.edmx</DependentUpon>
-    </Content>
     <None Include="packages.config" />
     <Content Include="Views\Home\UserProfile.cshtml" />
-    <Content Include="Views\Post\Index.cshtml" />
-    <Content Include="Views\Post\Create.cshtml" />
-    <Content Include="Views\Post\Delete.cshtml" />
-    <Content Include="Views\Post\Edit.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Shared\_Advertisement.cshtml" />
+    <Content Include="Views\Home\Users.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BenivoNetwork.BLL\BenivoNetwork.BLL.csproj">
+      <Project>{c8a35f37-8fdd-457f-ab09-643de8c52761}</Project>
+      <Name>BenivoNetwork.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BenivoNetwork.Common\BenivoNetwork.Common.csproj">
+      <Project>{63c86555-9fff-4f8d-8c54-aab078d4bbd4}</Project>
+      <Name>BenivoNetwork.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

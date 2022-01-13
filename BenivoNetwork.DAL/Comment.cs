@@ -12,28 +12,26 @@ namespace BenivoNetwork.DAL
     using System;
     using System.Collections.Generic;
     
-    public partial class User
+    public partial class Comment
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public User()
+        public Comment()
         {
-            this.Posts = new HashSet<Post>();
+            this.Notifications = new HashSet<Notification>();
+            this.Reactions = new HashSet<Reaction>();
         }
     
         public int ID { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public Nullable<System.DateTime> DateOfBirth { get; set; }
-        public bool IsActive { get; set; }
-        public string Email { get; set; }
-        public string Gender { get; set; }
-        public Nullable<bool> IsMarried { get; set; }
-        public string ImageURL { get; set; }
-        public string UserName { get; set; }
-        public string Password { get; set; }
-        public string Role { get; set; }
+        public int UserID { get; set; }
+        public int PostID { get; set; }
+        public string Text { get; set; }
+        public System.DateTime DateCreated { get; set; }
     
+        public virtual Post Post { get; set; }
+        public virtual User User { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Notification> Notifications { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Reaction> Reactions { get; set; }
     }
 }
