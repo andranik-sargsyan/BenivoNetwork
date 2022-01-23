@@ -1,0 +1,107 @@
+﻿@{
+    ViewBag.Title = "Messages";
+}
+
+<link href="~/Styles/messages.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/messages.js" type="text/javascript"></script>
+
+<div class="row content">
+    <div class="col-md-3">
+        <h3>People</h3>
+        <div id="bn-profiles">
+            <div class="bn-profile border p-2 mb-1 me-1">
+                <a href="@Url.Action("Messages", "Home", new { id = 1 })" class="bn-profile-link" target="_blank">
+                    <!--FIX-->
+                    <img class="bn-profile-pic" src="~/Content/Images/user.png" alt="User Profile Pic">
+                    <span>Lorem Ipsum</span>
+                </a>
+                <br />
+                <span class="bn-message-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            </div>
+            <div class="bn-profile border p-2 mb-1 me-1">
+                <a href="@Url.Action("Messages", "Home", new { id = 1 })" class="bn-profile-link" target="_blank">
+                    <!--FIX-->
+                    <img class="bn-profile-pic" src="~/Content/Images/user.png" alt="User Profile Pic">
+                    <span>Lorem Ipsum</span>
+                </a>
+                <br />
+                <span class="bn-message-preview">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</span>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <h3>Messages</h3>
+        <div id="bn-messages">
+            <div class="bn-message bn-from border p-2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <figcaption class="blockquote-footer">
+                    <cite>2021-09-21 00:43</cite>
+                    |
+                    <span class="bn-like">
+                        <span>Like </span><span>👍</span>
+                    </span>
+                    <span class="bn-like-count" title=""></span>
+                </figcaption>
+            </div>
+            <div class="bn-message bn-from border p-2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <figcaption class="blockquote-footer">
+                    <cite>2021-09-21 00:43</cite>
+                    |
+                    <span class="bn-like bn-active">
+                        <span>Like </span><span>👍</span>
+                    </span>
+                    <span class="bn-like-count" title="User 1, User 2">2</span>
+                </figcaption>
+            </div>
+            <div class="bn-message bn-from border p-2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <figcaption class="blockquote-footer">
+                    <cite>2021-09-21 00:43</cite>
+                    |
+                    <span class="bn-like bn-active">
+                        <span>Like </span><span>👍</span>
+                    </span>
+                    <span class="bn-like-count" title="User 1">1</span>
+                </figcaption>
+            </div>
+            <div class="bn-message bn-to border p-2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <figcaption class="blockquote-footer">
+                    <cite>2021-09-21 00:43</cite>
+                    |
+                    <span class="bn-like">
+                        <span>Like </span><span>👍</span>
+                    </span>
+                    <span class="bn-like-count" title=""></span>
+                </figcaption>
+            </div>
+            <div class="bn-message bn-to border p-2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <figcaption class="blockquote-footer">
+                    <cite>2021-09-21 00:43</cite>
+                    |
+                    <span class="bn-like bn-active">
+                        <span>Like </span><span>👍</span>
+                    </span>
+                    <span class="bn-like-count" title="User 1, User 2">2</span>
+                </figcaption>
+            </div>
+            <div class="bn-message bn-from border p-2">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <figcaption class="blockquote-footer">
+                    <cite>2021-09-21 00:43</cite>
+                    |
+                    <span class="bn-like">
+                        <span>Like </span><span>👍</span>
+                    </span>
+                    <span class="bn-like-count" title=""></span>
+                </figcaption>
+            </div>
+        </div>
+        <div id="bn-message-input-wrapper" class="mt-1">
+            <textarea id="bn-message-text" class="form-control" placeholder="Your message here..."></textarea>
+            <button id="bn-btn-send" class="btn btn-secondary" title="Send">➤</button>
+        </div>
+    </div>
+</div>

@@ -9,6 +9,9 @@
     <script src="~/Content/Plugins/jquery.3.6.0/jquery-3.6.0.min.js" type="text/javascript"></script>
     <script src="~/Content/Plugins/bootstrap.5.1.2/js/bootstrap.bundle.min.js" type="text/javascript"></script>
     <link href="~/Styles/common.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript">
+        let _searchURL = "@Url.Action("Search", "Home")";
+    </script>
     <script src="~/Scripts/common.js" type="text/javascript"></script>
 </head>
 <body class="d-flex flex-column h-100">
@@ -16,7 +19,7 @@
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">
-                    <img id="logo" src="~/Content/Images/logo.png" alt="Benivo Network" />
+                    <img id="bn-logo" src="~/Content/Images/logo.png" alt="Benivo Network" />
                 </a>
                 <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -24,7 +27,7 @@
                 <div class="navbar-collapse collapse" id="navbar-collapse">
                     <ul class="navbar-nav me-auto mb-2 mb-md-0">
                         <li class="nav-item">
-                            <input class="form-control me-2 mt-2 mt-md-0" type="search" placeholder="Search..." aria-label="Search...">
+                            <input id="bn-search" class="form-control me-2 mt-2 mt-md-0" type="search" placeholder="Search..." aria-label="Search..."><!--FIX - make autocomplete-->
                         </li>
                     </ul>
                     <ul class="navbar-nav mb-2 mb-md-0">
@@ -33,13 +36,13 @@
                             <ul class="dropdown-menu" aria-labelledby="navbar-messages">
                                 <!--PLACEHOLDER-NO ITEMS-->
                                 <!--RED ICON, IF ANY-->
-                                <li><a class="dropdown-item" href="#"><!--LINK TO MESSAGES -> SELECTED-->Message 1...</a></li>
-                                <li><a class="dropdown-item" href="#"><!--LINK TO MESSAGES -> SELECTED-->Message 2...</a></li>
-                                <li><a class="dropdown-item" href="#"><!--LINK TO MESSAGES -> SELECTED-->Message 3...</a></li>
-                                <li><a class="dropdown-item" href="#"><!--LINK TO MESSAGES -> SELECTED-->Message 4...</a></li>
-                                <li><a class="dropdown-item" href="#"><!--LINK TO MESSAGES -> SELECTED-->Message 5...</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Messages", "Home", new { id = 1 })"><!--LINK TO MESSAGES -> SELECTED-->Message 1...</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Messages", "Home", new { id = 1 })"><!--LINK TO MESSAGES -> SELECTED-->Message 2...</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Messages", "Home", new { id = 1 })"><!--LINK TO MESSAGES -> SELECTED-->Message 3...</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Messages", "Home", new { id = 1 })"><!--LINK TO MESSAGES -> SELECTED-->Message 4...</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Messages", "Home", new { id = 1 })"><!--LINK TO MESSAGES -> SELECTED-->Message 5...</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="messages.html">See All Messages...<!--FIX/NEW PAGE/ENTITY/--></a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Messages", "Home")">See All Messages...<!--FIX/NEW PAGE/ENTITY/--></a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -57,10 +60,10 @@
                                 <!--RED ICON, IF ANY-->
                                 <!--NON-CLICKABLE - or go to post-->
                                 <!--ELLIPSIS-->
-                                <li><a class="dropdown-item" href="#">💬 Notification 1</a></li>
-                                <li><a class="dropdown-item" href="#">👍 Notification 2</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Notifications", "Home", new { id = 1 })">💬 Notification 1</a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Notifications", "Home", new { id = 1 })">👍 Notification 2</a></li>
                                 <li class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="notifications.html">See More...<!--FIX/NEW PAGE/ENTITY/--></a></li>
+                                <li><a class="dropdown-item" href="@Url.Action("Notifications", "Home")">See More...<!--FIX/NEW PAGE/ENTITY/--></a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
@@ -68,8 +71,9 @@
                                 <img class="bn-profile-pic" src="~/Content/Images/user.png" alt="User Profile Pic"><!--FIX--> Andranik<!--DYNAMIC-->
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbar-profile">
-                                <li>@Html.ActionLink("🧑 Profile", "UserProfile", "Home", null, new { @class = "dropdown-item" })</li>
-                                <li><a class="dropdown-item" href="login-register.html"><!--FIX-->🚪 Logout<!--FIX--></a></li>
+                                <li>@Html.ActionLink("🧑 Profile", "UserProfile", "Home", new { id = 1 }, new { @class = "dropdown-item" })</li>
+                                <!--<li><a class="dropdown-item" href="login-register.html">--><!--FIX--><!--🚪 Logout--><!--FIX--><!--</a></li>-->
+                                <li><a class="dropdown-item" href="~/Home/Welcome"><!--FIX-->🚪 Logout<!--FIX--></a></li>
                             </ul>
                         </li>
                     </ul>
@@ -84,15 +88,13 @@
         </div>
 
         <!--FIX-->
-        <div id="loader" class="d-none" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; background-color: #80808054; display: flex; align-items: center; justify-content: center;">
+        <div id="bn-loader" class="d-none" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; background-color: #80808054; display: flex; align-items: center; justify-content: center;">
             <!--FIX-->
-            <img src="https://i.stack.imgur.com/hzk6C.gif" style=" height: 150px; width: 300px;" />
+            <img src="https://i.stack.imgur.com/hzk6C.gif" />
         </div>
     </main>
 
-    @RenderSection("scripts", required: false)
-
-    <footer id="my-footer" class="footer mt-auto py-3 bg-light">
+    <footer class="footer mt-auto py-3 bg-light">
         <div class="container">
             <span class="text-muted">Copyright © @DateTime.Now.Year by Andranik Sargsyan</span>
         </div>

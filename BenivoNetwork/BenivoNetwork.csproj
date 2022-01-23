@@ -141,12 +141,14 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Enums\TestEnum.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\HomeModel.cs" />
+    <Compile Include="Models\JsonNetResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -182,6 +184,7 @@
     <Content Include="Scripts\user-profile.js" />
     <Content Include="Styles\common.css" />
     <Content Include="Styles\notifications.css" />
+    <Content Include="Styles\post.css" />
     <Content Include="Styles\test.css" />
     <Content Include="Styles\messages.css" />
     <Content Include="Styles\login-register.css" />
@@ -247,7 +250,11 @@
     <Content Include="Views\Home\UserProfile.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
     <Content Include="Views\Shared\_Advertisement.cshtml" />
-    <Content Include="Views\Home\Users.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Home\Messages.cshtml" />
+    <Content Include="Views\Home\Notifications.cshtml" />
+    <Content Include="Views\Home\Post.cshtml" />
+    <Content Include="Views\Home\Welcome.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

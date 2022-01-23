@@ -1,0 +1,78 @@
+﻿@using BenivoNetwork.Common.Models
+
+@model SearchModel
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<link href="~/Styles/search.css" rel="stylesheet" type="text/css" />
+
+<div class="row content">
+    <div class="col-md-12">
+        <h3>Search Results</h3>
+        <div>
+            @if (Model.Results.Count > 0)
+            {
+                string resultWord = Model.Results.Count > 1 ? "results" : "result";
+                <span>Found <b class="text-danger">@Model.Results.Count</b> @resultWord for <b class="bg-warning">@Model.Term</b>.</span>
+            }
+            else
+            {
+                <span>No results found for <b class="bg-warning">@Model.Term</b>.</span>
+            }
+            <hr />
+        </div>
+        <div id="bn-search-results-wrapper">
+            @foreach (var result in Model.Results)
+            {
+                <div>@result.Name</div>
+            }
+            <!--<div class="bn-search-result bn-search-result-profile">
+                <div class="bn-profile-box">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic">
+                    <span>
+                        <a href="user-profile.html">Lorem Ipsum <span class="bg-warning">Sit</span></a><br>
+                        <input type="button" class="btn btn-secondary mt-2" value="Add Friend | Remove Friend">
+                    </span>
+                </div>
+                <hr />
+            </div>
+            <div class="bn-search-result bn-search-result-post">
+                <a href="user-profile.html" class="bn-profile-link">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic">
+                    <span>Lorem Ipsum</span>
+                </a>
+                <br />
+                <p>Lorem ipsum dolor <span class="bg-warning">sit</span> amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <figcaption class="blockquote-footer">
+                    <cite>2021-09-21 00:43</cite>
+                    |
+                    <a href="post.html" class="text-secondary">--><!--FIX--><!--Go to post</a>
+                </figcaption>
+                <hr />
+            </div>
+            <div class="bn-search-result bn-search-result-post">
+                <a href="user-profile.html" class="bn-profile-link">
+                    <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic">
+                    <span>Lorem Ipsum</span>
+                </a>
+                <br />
+                <p>Lorem ipsum dolor <span class="bg-warning">sit</span> amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <figcaption class="blockquote-footer">
+                    <cite>2021-09-21 00:43</cite>
+                    |
+                    <a href="post.html" class="text-secondary">--><!--FIX--><!--Go to post</a>
+                </figcaption>
+                <div class="bn-search-result-comment">
+                    <a href="user-profile.html" class="bn-profile-link">
+                        <img class="bn-profile-pic" src="../Content/Images/user.png" alt="User Profile Pic">
+                        <span>Lorem Ipsum</span>
+                    </a>
+                    <p>Lorem ipsum dolor <span class="bg-warning">sit</span> amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                </div>
+                <hr />
+            </div>-->
+        </div>
+    </div>
+</div>

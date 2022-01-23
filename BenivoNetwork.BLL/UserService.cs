@@ -9,14 +9,28 @@ namespace BenivoNetwork.BLL
     {
         public static List<UserModel> GetUsers()
         {
-            var user = UserRepository.GetUsers();
+            var users = UserRepository.GetUsers();
 
-            return user.Select(u => new UserModel
+            return users.Select(u => new UserModel
             {
                 ID = u.ID,
                 FirstName = u.FirstName,
-                Email = u.Email
+                Email = u.Email,
+                DateOfBirth = u.DateOfBirth
             }).ToList();
+        }
+
+        public static List<SearchResultModel> SearchUsers(string term)
+        {
+            var users = UserRepository.GetUsers();
+
+            return users
+                .Where(u => (u.FirstName + " " + u.LastName + " " + u.Email).ToLower().Contains(term.ToLower()))
+                .Select(u => new SearchResultModel
+                {
+                    Name = u.Email
+                })
+                .ToList();
         }
     }
 }
