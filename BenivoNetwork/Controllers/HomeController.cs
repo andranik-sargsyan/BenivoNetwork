@@ -2,16 +2,17 @@
 using BenivoNetwork.Common.Models;
 using BenivoNetwork.Enums;
 using BenivoNetwork.Models;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Web;
+using System.Security.Claims;
 using System.Web.Mvc;
+using System.Web.Mvc.Filters;
+using System.Web.Security;
 
 namespace BenivoNetwork.Controllers
 {
+    [Authorize]
     public class HomeController : BaseController
     {
         [HttpGet]
@@ -20,13 +21,12 @@ namespace BenivoNetwork.Controllers
             return View();
         }
 
+        //TODO: why not visiting this url?
         [HttpGet]
-        public ActionResult UserProfile(int id)
+        public ActionResult UserProfile(int id) //TODO: param? //alternate username with ? param
         {
-            ViewBag.FullName = "Andranik Sargsyan";
-
             return View();
-        } //TODO: param? //alternate username with ? param
+        }
 
         [HttpGet]
         public ActionResult Search(string term)
@@ -59,9 +59,41 @@ namespace BenivoNetwork.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public ActionResult Welcome()
         {
-            return View();
+            if (Request.QueryString["ReturnUrl"] == "/")
+            {
+                Response.Redirect(Request.Url.AbsolutePath);
+            }
+
+            return View(new LoginModel());
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public ActionResult Login(LoginModel model)
+        {
+            //TODO: validate via ModelState
+            //TODO: use redirect URL
+
+            var isSuccessful = AccountService.Login(model);
+
+            if (isSuccessful)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Welcome");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public JsonResult Logout()
+        {
+            AccountService.Logout();
+
+            return JsonNet("OK");
         }
 
         #region Learning Purposes
@@ -105,14 +137,6 @@ namespace BenivoNetwork.Controllers
             var data = users.Where(u => u.FirstName.ToLower().Contains(term));
 
             return JsonNet(data);
-        }
-
-        [HttpGet]
-        public ActionResult Users()
-        {
-            var model = UserService.GetUsers();
-
-            return View(model);
         }
 
         #endregion

@@ -1,6 +1,7 @@
 ﻿$(() => {
     let divLoader = $("#bn-loader");
     let txtSearch = $("#bn-search");
+    let btnLogout = $("#bn-logout");
 
     $(document).on({
         ajaxStart: function () {
@@ -18,6 +19,17 @@
         }
 
         window.location.href = `${_searchURL}?term=${term}`;
+    });
+
+    btnLogout.click(function (e) {
+        e.preventDefault();
+
+        _helpers.callAJAX(_logoutURL, "POST", undefined, function (data) {
+            if (data == "OK") {
+                //TODO: use common response
+                location.href = _welcomeURL;
+            }
+        });
     });
 });
 
