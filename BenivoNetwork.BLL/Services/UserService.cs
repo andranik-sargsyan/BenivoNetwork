@@ -1,15 +1,25 @@
 ﻿using BenivoNetwork.Common.Models;
 using BenivoNetwork.DAL;
+using BenivoNetwork.DAL.Interfaces;
+using BenivoNetwork.DAL.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace BenivoNetwork.BLL
+namespace BenivoNetwork.BLL.Services
 {
-    public class UserService
+    public class UserService : IUserService
     {
-        public static List<UserModel> GetUsers()
+        private readonly IUnitOfWork _unitOfWork;
+
+        public UserService(IUnitOfWork unitOfWork)
         {
-            var users = UserRepository.GetUsers();
+            _unitOfWork = unitOfWork;
+        }
+
+        public List<UserModel> GetUsers()
+        {
+            var users = _unitOfWork.UserRepository.GetUsers();
 
             return users.Select(u => new UserModel
             {
@@ -20,9 +30,9 @@ namespace BenivoNetwork.BLL
             }).ToList();
         }
 
-        public static List<SearchResultModel> SearchUsers(string term)
+        public List<SearchResultModel> SearchUsers(string term)
         {
-            var users = UserRepository.GetUsers();
+            var users = _unitOfWork.UserRepository.Get();
 
             return users
                 .Where(u => (u.FirstName + " " + u.LastName + " " + u.Email).ToLower().Contains(term.ToLower()))

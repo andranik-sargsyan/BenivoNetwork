@@ -1,20 +1,27 @@
-﻿using BenivoNetwork.BLL;
+﻿using BenivoNetwork.BLL.Services;
 using BenivoNetwork.Common.Models;
 using BenivoNetwork.Enums;
 using BenivoNetwork.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Security.Claims;
 using System.Web.Mvc;
-using System.Web.Mvc.Filters;
-using System.Web.Security;
 
 namespace BenivoNetwork.Controllers
 {
     [Authorize]
     public class HomeController : BaseController
     {
+        private readonly IAccountService _accountService;
+        private readonly IUserService _userService;
+
+        public HomeController(
+            IAccountService accountService,
+            IUserService userService)
+        {
+            _accountService = accountService;
+            _userService = userService;
+        }
+
         [HttpGet]
         public ActionResult Index()
         {
@@ -31,7 +38,7 @@ namespace BenivoNetwork.Controllers
         [HttpGet]
         public ActionResult Search(string term)
         {
-            var result = UserService.SearchUsers(term);
+            var result = _userService.SearchUsers(term);
 
             return View(new SearchModel
             {
@@ -67,7 +74,7 @@ namespace BenivoNetwork.Controllers
                 Response.Redirect(Request.Url.AbsolutePath);
             }
 
-            return View(new LoginModel());
+            return View(new LoginModel { ReturnUrl = Request.QueryString["ReturnUrl"] });
         }
 
         [HttpPost]
@@ -75,23 +82,27 @@ namespace BenivoNetwork.Controllers
         public ActionResult Login(LoginModel model)
         {
             //TODO: validate via ModelState
-            //TODO: use redirect URL
 
-            var isSuccessful = AccountService.Login(model);
+            var isSuccessful = _accountService.Login(model);
 
             if (isSuccessful)
             {
+                if (!string.IsNullOrWhiteSpace(model.ReturnUrl))
+                {
+                    return Redirect(model.ReturnUrl);
+                }
+
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Welcome");
+            return RedirectToAction("Welcome", new { ReturnUrl = model.ReturnUrl });
         }
 
         [HttpPost]
         [AllowAnonymous]
         public JsonResult Logout()
         {
-            AccountService.Logout();
+            _accountService.Logout();
 
             return JsonNet("OK");
         }
@@ -130,7 +141,7 @@ namespace BenivoNetwork.Controllers
         [HttpGet]
         public JsonResult GetUsers(string term)
         {
-            var users = UserService.GetUsers();
+            var users = _userService.GetUsers();
 
             term = term.ToLower();
 

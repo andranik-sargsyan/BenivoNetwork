@@ -1,13 +1,21 @@
 ﻿using BenivoNetwork.Common.Models;
+using BenivoNetwork.DAL.Interfaces;
 using System;
 using System.Web;
 using System.Web.Security;
 
-namespace BenivoNetwork.BLL
+namespace BenivoNetwork.BLL.Services
 {
-    public class AccountService
+    public class AccountService : IAccountService
     {
-        public static bool Login(LoginModel model)
+        private readonly IUnitOfWork _unitOfWork;
+
+        public AccountService(IUnitOfWork unitOfWork)
+        {
+            _unitOfWork = unitOfWork;
+        }
+
+        public bool Login(LoginModel model)
         {
             if (model.Password == "test")
             {
@@ -23,7 +31,7 @@ namespace BenivoNetwork.BLL
             return false;
         }
 
-        public static void Logout()
+        public void Logout()
         {
             FormsAuthentication.SignOut();
         }

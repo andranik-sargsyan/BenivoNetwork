@@ -71,6 +71,10 @@
     <Compile Include="Friendship.cs">
       <DependentUpon>BenivoNetworkModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Interfaces\IPostRepository.cs" />
+    <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Message.cs">
       <DependentUpon>BenivoNetworkModel.tt</DependentUpon>
     </Compile>
@@ -83,10 +87,13 @@
     <Compile Include="Reaction.cs">
       <DependentUpon>BenivoNetworkModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Repositories\UnitOfWork.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\PostRepository.cs" />
     <Compile Include="User.cs">
       <DependentUpon>BenivoNetworkModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="UserRepository.cs" />
+    <Compile Include="Repositories\UserRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

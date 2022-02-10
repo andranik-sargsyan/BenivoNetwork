@@ -1,7 +1,6 @@
+using BenivoNetwork.Configuration;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Principal;
 using System.Web;
 using System.Web.Http;
@@ -12,7 +11,7 @@ using System.Web.Security;
 
 namespace BenivoNetwork
 {
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -21,6 +20,11 @@ namespace BenivoNetwork
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
+            GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
+
+            SimpleInjectorConfig.Register(GlobalConfiguration.Configuration);
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)

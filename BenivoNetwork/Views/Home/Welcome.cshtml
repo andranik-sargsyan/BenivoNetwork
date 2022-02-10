@@ -21,6 +21,7 @@
     <div class="col-md-4">
         @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "bn-form-login", @class = "border p-3" }))
         {
+            @Html.HiddenFor(m => m.ReturnUrl)
             <h2>Login</h2>
             <div class="form-group mb-1">
                 @Html.LabelFor(m => m.Login, "Email or User Name")

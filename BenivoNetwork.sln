@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31624.102
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32126.317
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenivoNetwork", "BenivoNetwork\BenivoNetwork.csproj", "{324EB678-0443-40E9-813F-4E19B4F71722}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenivoNetwork.BLL", "BenivoNetwork.BLL\BenivoNetwork.BLL.csproj", "{C8A35F37-8FDD-457F-AB09-643DE8C52761}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenivoNetwork.Common", "BenivoNetwork.Common\BenivoNetwork.Common.csproj", "{63C86555-9FFF-4F8D-8C54-AAB078D4BBD4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BenivoNetwork.Configuration", "BenivoNetwork.Configuration\BenivoNetwork.Configuration.csproj", "{AB8D2405-0B42-4FCB-B3F0-0F22E3C81E21}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{63C86555-9FFF-4F8D-8C54-AAB078D4BBD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{63C86555-9FFF-4F8D-8C54-AAB078D4BBD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{63C86555-9FFF-4F8D-8C54-AAB078D4BBD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB8D2405-0B42-4FCB-B3F0-0F22E3C81E21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB8D2405-0B42-4FCB-B3F0-0F22E3C81E21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB8D2405-0B42-4FCB-B3F0-0F22E3C81E21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB8D2405-0B42-4FCB-B3F0-0F22E3C81E21}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
