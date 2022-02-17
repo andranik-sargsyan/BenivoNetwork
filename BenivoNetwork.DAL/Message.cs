@@ -27,9 +27,9 @@ namespace BenivoNetwork.DAL
         public System.DateTime DateSent { get; set; }
         public Nullable<System.DateTime> DateSeen { get; set; }
     
-        public virtual User FromUser { get; set; }
-        public virtual User ToUser { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Reaction> Reactions { get; set; }
+        public virtual User FromUser { get; set; }
+        public virtual User ToUser { get; set; }
     }
 }

@@ -26,7 +26,8 @@ namespace BenivoNetwork.BLL.Services
                 ID = u.ID,
                 FirstName = u.FirstName,
                 Email = u.Email,
-                DateOfBirth = u.DateOfBirth
+                DateOfBirth = u.DateOfBirth,
+                Gender = u.Gender
             }).ToList();
         }
 

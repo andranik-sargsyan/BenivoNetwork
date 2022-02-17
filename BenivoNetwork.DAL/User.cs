@@ -34,12 +34,12 @@ namespace BenivoNetwork.DAL
         public Nullable<System.DateTime> DateOfBirth { get; set; }
         public bool IsActive { get; set; }
         public string Email { get; set; }
-        public string Gender { get; set; }
+        public Nullable<BenivoNetwork.Common.Enums.GenderEnum> Gender { get; set; }
         public Nullable<bool> IsMarried { get; set; }
         public string ImageURL { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public string Role { get; set; }
+        public BenivoNetwork.Common.Enums.RoleEnum Role { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Comment> Comments { get; set; }

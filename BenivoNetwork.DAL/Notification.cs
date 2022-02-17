@@ -20,6 +20,7 @@ namespace BenivoNetwork.DAL
         public int PostID { get; set; }
         public Nullable<int> CommentID { get; set; }
         public Nullable<int> ReactionID { get; set; }
+        public bool Seen { get; set; }
     
         public virtual Comment Comment { get; set; }
         public virtual Post Post { get; set; }
