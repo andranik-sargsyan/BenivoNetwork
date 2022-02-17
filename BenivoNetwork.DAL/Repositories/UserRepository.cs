@@ -10,16 +10,6 @@ namespace BenivoNetwork.DAL.Repositories
         {
         }
 
-        public void Create(User ob)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void Delete(int id)
-        {
-            throw new System.NotImplementedException();
-        }
-
         public List<User> GetUsers()
         {
             List<User> users;

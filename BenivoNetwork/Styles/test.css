@@ -1,31 +1,5 @@
-﻿#stories {
-    width: 250px;
-    margin: 0 auto;
-    border: solid 1px gray;
+﻿#canvas {
+    background-color: black;
+    margin: 10px auto;
+    display: block;
 }
-
-    #stories > img {
-        width: 100%;
-    }
-
-#story-lines {
-    height: 5px;
-    width: 100%;
-}
-
-    #story-lines > div {
-        background-color: lightgray;
-        height: 100%;
-        float: left;
-        margin-right: 1px;
-    }
-
-        #story-lines > div:last-child {
-            margin-right: 0px;
-        }
-
-        #story-lines > div > div {
-            width: 0%;
-            height: 100%;
-            background-color: gray;
-        }
