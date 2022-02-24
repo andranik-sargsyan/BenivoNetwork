@@ -26,6 +26,11 @@ namespace BenivoNetwork.DAL.Repositories
         {
             IQueryable<TEntity> query = _dbSet;
 
+            if (asNoTracking)
+            {
+                query = query.AsNoTracking();
+            }
+
             if (filter != null)
             {
                 query = query.Where(filter);
@@ -39,11 +44,6 @@ namespace BenivoNetwork.DAL.Repositories
             if (orderBy != null)
             {
                 query = orderBy(query);
-            }
-
-            if (asNoTracking)
-            {
-                return query.AsNoTracking().ToList();
             }
 
             return query.ToList();

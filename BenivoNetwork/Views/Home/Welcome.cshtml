@@ -1,6 +1,6 @@
 ﻿@using BenivoNetwork.Common.Models
 
-@model LoginModel
+@model WelcomeModel
 
 @{
     ViewBag.Title = "Welcome";
@@ -19,44 +19,7 @@
         <h2>...the most unique social network for the most creative individuals!</h2>
     </div>
     <div class="col-md-4">
-        @using (Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "bn-form-login", @class = "border p-3" }))
-        {
-            @Html.HiddenFor(m => m.ReturnUrl)
-            <h2>Login</h2>
-            <div class="form-group mb-1">
-                @Html.LabelFor(m => m.Login, "Email or User Name")
-                @Html.TextBoxFor(m => m.Login, new { @class = "form-control", placeholder = "name@example.com | username" })
-            </div>
-            <div class="form-group mb-2">
-                @Html.LabelFor(m => m.Password, "Password")
-                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Type your very secret password!" })
-            </div>
-            <div class="form-check mb-2">
-                @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
-                @Html.LabelFor(m => m.RememberMe, "Remember Me", new { @class = "form-check-label" })
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-success w-100" value="Enter" />
-            </div>
-        }
-        <form id="bn-form-register" class="border p-3 mt-3" action="@Url.Action("Register", "Home")" method="post">
-            <h2>Register</h2>
-            <!--NAME/SURNAME-->
-            <div class="form-group mb-1">
-                <label for="bn-register-email">Email</label>
-                <input type="email" class="form-control" id="bn-register-email" placeholder="name@example.com" />
-            </div>
-            <div class="form-group mb-1">
-                <label for="bn-register-password">Password</label>
-                <input type="password" class="form-control" id="bn-register-password" placeholder="Type your very secret password!" />
-            </div>
-            <div class="form-group mb-2">
-                <label for="bn-register-birthdate">Birth Date</label>
-                <input type="date" class="form-control" id="bn-register-birthdate" />
-            </div>
-            <div class="form-group">
-                <input type="submit" class="btn btn-success w-100" value="Join Us" />
-            </div>
-        </form>
+        @Html.Partial("_Login", Model.LoginModel)
+        @Html.Partial("_Register", Model.RegisterModel)
     </div>
 </div>

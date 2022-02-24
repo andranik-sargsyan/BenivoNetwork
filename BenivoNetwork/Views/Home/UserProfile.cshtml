@@ -1,4 +1,8 @@
-﻿@{
+﻿@using BenivoNetwork.Common.Models
+
+@model UserModel
+
+@{
     ViewBag.Title = "User Profile";
 }
 
@@ -16,12 +20,22 @@
                 <img id="bn-main-pic" src="~/Content/Images/user.png" class="img-thumbnail img-fluid" alt="User Profile Pic"><!--FIX-->
             </div>
             <div class="col-md-9">
-                <h4>Lorem Ipsum</h4>
+                <h4>@Model.FirstName @Model.LastName</h4>
                 <hr />
-                <b>Role</b> Admin<br />
-                <b>Gender</b> Male<br />
-                <b>Birth Date</b> 16/07/1990<br />
-                <b>Last Visit</b> 01/01/2021<br />
+                <b>Role</b> @Model.Role<br />
+                @if (Model.Gender.HasValue)
+                {
+                    <b>Gender</b> @Model.Gender.Value<br />
+                }
+                @if (Model.DateOfBirth.HasValue)
+                {
+                    <b>Born</b> @Model.DateOfBirth.Value.ToString("dd/MM/yyyy")<br />
+                }
+                @if (Model.IsMarried.HasValue)
+                {
+                    <b>Marital status</b> @(Model.IsMarried.Value ? "" : "")<br/>
+                }
+                <b>Last Visit</b> 01/01/2021 17:58<br />
                 <hr />
                 <input type="button" class="btn btn-secondary" value="Add Friend | Remove Friend" /><!--FIX-->
                 <input type="button" class="btn btn-secondary" value="Edit" /><!--FIX-->

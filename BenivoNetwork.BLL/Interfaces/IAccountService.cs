@@ -6,5 +6,6 @@ namespace BenivoNetwork.BLL.Services
     {
         bool Login(LoginModel model);
         void Logout();
+        RegisterResultModel Register(RegisterModel model);
     }
 }

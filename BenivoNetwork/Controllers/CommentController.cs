@@ -11,10 +11,5 @@ namespace BenivoNetwork.Controllers
         {
             _userService = userService;
         }
-
-        public IHttpActionResult Get()
-        {
-            return Ok(_userService.SearchUsers("ar"));
-        }
     }
 }

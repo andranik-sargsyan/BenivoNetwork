@@ -14,9 +14,52 @@
     <script src="../Scripts/test.js" type="text/javascript"></script>
 </head>
 <body>
-    <canvas id="canvas" width="800" height="600"></canvas>
-    <div class="slidecontainer">
-        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <h4>Shop Country</h4>
+                <select id="shop-country" class="form-control">
+                    <option value="">---</option>
+                    <option value="GB">GB</option>
+                    <option value="Germany">Germany</option>
+                    <option value="Russia">Russia</option>
+                </select>
+            </div>
+            <div class="col-md-10">
+                <!--Artist/Band DDL, Your Country DDL -> Name/Surname/State/City/ZIP/Phone-->
+
+                <h4>&nbsp;</h4>
+
+                <div id="common" class="d-none">
+                    Name <input type="text" id="name" class="form-control" /><br />
+                    Surname <input type="text" id="surname" class="form-control" /><br />
+                </div>
+
+                <div class="other-data d-none" data-name="Germany">
+                    ZIP <input type="text" id="zip" class="form-control" /><br />
+                </div>
+
+                <select class="form-control artist d-none" data-name="GB">
+                    <option>Muse</option>
+                    <option>The Beatles</option>
+                    <option>Pink Floyd</option>
+                </select>
+                <select class="form-control artist d-none" data-name="Germany">
+                    <option>Bethoven</option>
+                    <option>Scorpions</option>
+                    <option>Rammstein</option>
+                    <option>Sarah Connor</option>
+                </select>
+                <select class="form-control artist d-none" data-name="Russia">
+                    <option>Олег Газманов</option>
+                    <option>Виктор Цой</option>
+                    <option>Григорий Лепс</option>
+                    <option>Алсу</option>
+                    <option>ВИА Сливки</option>
+                    <option>Сплин</option>
+                </select>
+            </div>
+        </div>
     </div>
 </body>
 </html>

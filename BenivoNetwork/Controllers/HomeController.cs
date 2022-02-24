@@ -28,11 +28,19 @@ namespace BenivoNetwork.Controllers
             return View();
         }
 
-        //TODO: why not visiting this url?
         [HttpGet]
-        public ActionResult UserProfile(int id) //TODO: param? //alternate username with ? param
+        public ActionResult UserProfile(int? id) //TODO: param? //alternate username with ? param
         {
-            return View();
+            if (!id.HasValue)
+            {
+                //TODO: fix or add not found page
+                //TODO: or maybe use global exception handling (with try/catch for now - but explain it with Global.asax _OnError~)
+                return View("Error");
+            }
+
+            var model = _userService.GetUser(id.Value);
+
+            return View(model);
         }
 
         [HttpGet]
@@ -74,7 +82,7 @@ namespace BenivoNetwork.Controllers
                 Response.Redirect(Request.Url.AbsolutePath);
             }
 
-            return View(new LoginModel { ReturnUrl = Request.QueryString["ReturnUrl"] });
+            return View(new WelcomeModel(Request.QueryString["ReturnUrl"]));
         }
 
         [HttpPost]
@@ -107,49 +115,37 @@ namespace BenivoNetwork.Controllers
             return JsonNet("OK");
         }
 
-        #region Learning Purposes
-
-        [HttpGet]
-        public ActionResult Test()
-        {
-            var model = new HomeModel
-            {
-                Count = 4,
-                DayType = TestEnum.Night,
-                IsImported = true,
-                Text = "Apple",
-                Names = new List<string>
-                {
-                    "Golden",
-                    "Simirenko",
-                    "Demirchyan"
-                }
-            };
-
-            return View(model);
-        }
-
         [HttpPost]
-        public JsonResult Test(HomeModel model)
+        [AllowAnonymous]
+        public ActionResult Register(RegisterModel model)
         {
-            string s = "Hello";
-            char c = s[10];
+            //TODO: check Register and Login together
 
-            return JsonNet("OK");
+            //TODO: validate via ModelState
+
+            var registerResult = _accountService.Register(model);
+
+            //TODO: error message
+            if (!registerResult.IsSuccessful)
+            {
+                return RedirectToAction("Welcome", new { ReturnUrl = model.ReturnUrl });
+            }
+
+            //TODO: pass model's sub model
+            var isSuccessful = _accountService.Login(new LoginModel
+            {
+                Login = model.Email,
+                Password = model.Password
+            });
+
+            //FIX
+            if (isSuccessful)
+            {
+                //TODO: fix ID
+                return RedirectToAction("UserProfile", new { id = registerResult.ID });
+            }
+
+            return RedirectToAction("Welcome", new { ReturnUrl = model.ReturnUrl });
         }
-
-        [HttpGet]
-        public JsonResult GetUsers(string term)
-        {
-            var users = _userService.GetUsers();
-
-            term = term.ToLower();
-
-            var data = users.Where(u => u.FirstName.ToLower().Contains(term));
-
-            return JsonNet(data);
-        }
-
-        #endregion
     }
 }

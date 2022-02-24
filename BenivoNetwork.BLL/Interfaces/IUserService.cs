@@ -5,7 +5,7 @@ namespace BenivoNetwork.BLL.Services
 {
     public interface IUserService
     {
-        List<UserModel> GetUsers();
+        UserModel GetUser(int id);
         List<SearchResultModel> SearchUsers(string term);
     }
 }

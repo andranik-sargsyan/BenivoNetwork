@@ -18,7 +18,7 @@
         <AssociationConnector Association="BenivoNetworkModel.FK_Notification_Post" ManuallyRouted="false" />
         <AssociationConnector Association="BenivoNetworkModel.FK_Notification_Reaction" ManuallyRouted="false" />
         <AssociationConnector Association="BenivoNetworkModel.FK_Reaction_Post" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="BenivoNetworkModel.User" Width="1.5" PointX="0.75" PointY="11" />
+        <EntityTypeShape EntityType="BenivoNetworkModel.User" Width="1.5" PointX="0.75" PointY="10.875" />
         <AssociationConnector Association="BenivoNetworkModel.FK_Comment_User" />
         <AssociationConnector Association="BenivoNetworkModel.FK_Friendship_User_First" />
         <AssociationConnector Association="BenivoNetworkModel.FK_Friendship_User_Second" />
@@ -28,7 +28,7 @@
         <AssociationConnector Association="BenivoNetworkModel.FK_Notification_UserTo" />
         <AssociationConnector Association="BenivoNetworkModel.FK_Post_User" />
         <AssociationConnector Association="BenivoNetworkModel.FK_Reaction_User" />
-      </Diagram>
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

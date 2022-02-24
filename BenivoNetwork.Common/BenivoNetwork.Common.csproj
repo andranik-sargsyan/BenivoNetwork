@@ -47,6 +47,9 @@
   <ItemGroup>
     <Compile Include="Enums\RoleEnum.cs" />
     <Compile Include="Enums\GenderEnum.cs" />
+    <Compile Include="Models\RegisterResultModel.cs" />
+    <Compile Include="Models\WelcomeModel.cs" />
+    <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\SearchResultModel.cs" />
     <Compile Include="Models\SearchModel.cs" />
     <Compile Include="Models\LoginModel.cs" />

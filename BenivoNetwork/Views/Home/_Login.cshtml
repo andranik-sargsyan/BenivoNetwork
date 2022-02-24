@@ -1,0 +1,24 @@
+﻿@using BenivoNetwork.Common.Models
+
+@model LoginModel
+
+@using (Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "bn-form-login", @class = "border p-3" }))
+{
+    @Html.HiddenFor(m => m.ReturnUrl, new { id = "LoginReturnUrl" })
+    <h2>Login</h2>
+    <div class="form-group mb-1">
+        @Html.LabelFor(m => m.Login)
+        @Html.TextBoxFor(m => m.Login, new { @class = "form-control", placeholder = "name@example.com | username" })
+    </div>
+    <div class="form-group mb-2">
+        @Html.LabelFor(m => m.Password)
+        @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Type your very secret password!", id = "LoginPassword" })
+    </div>
+    <div class="form-check mb-2">
+        @Html.CheckBoxFor(m => m.RememberMe, new { @class = "form-check-input" })
+        @Html.LabelFor(m => m.RememberMe, "Remember Me", new { @class = "form-check-label" })
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-success w-100" value="Enter" />
+    </div>
+}
