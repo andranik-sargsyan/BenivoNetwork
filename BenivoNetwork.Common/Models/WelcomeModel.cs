@@ -16,5 +16,15 @@
             LoginModel.ReturnUrl = returnUrl;
             RegisterModel.ReturnUrl = returnUrl;
         }
+
+        public WelcomeModel(LoginModel model) : this(model.ReturnUrl)
+        {
+            LoginModel = model;
+        }
+
+        public WelcomeModel(RegisterModel model) : this(model.ReturnUrl)
+        {
+            RegisterModel = model;
+        }
     }
 }

@@ -1,9 +1,5 @@
 ﻿using BenivoNetwork.BLL.Services;
 using BenivoNetwork.Common.Models;
-using BenivoNetwork.Enums;
-using BenivoNetwork.Models;
-using System.Collections.Generic;
-using System.Linq;
 using System.Web.Mvc;
 
 namespace BenivoNetwork.Controllers
@@ -89,7 +85,10 @@ namespace BenivoNetwork.Controllers
         [AllowAnonymous]
         public ActionResult Login(LoginModel model)
         {
-            //TODO: validate via ModelState
+            if (!ModelState.IsValid)
+            {
+                return View("Welcome", new WelcomeModel(model));
+            }
 
             var isSuccessful = _accountService.Login(model);
 
@@ -103,7 +102,7 @@ namespace BenivoNetwork.Controllers
                 return RedirectToAction("Index");
             }
 
-            return RedirectToAction("Welcome", new { ReturnUrl = model.ReturnUrl });
+            return View("Welcome", new WelcomeModel(model));
         }
 
         [HttpPost]
@@ -145,7 +144,7 @@ namespace BenivoNetwork.Controllers
                 return RedirectToAction("UserProfile", new { id = registerResult.ID });
             }
 
-            return RedirectToAction("Welcome", new { ReturnUrl = model.ReturnUrl });
+            return View("Welcome", new WelcomeModel(model));
         }
     }
 }

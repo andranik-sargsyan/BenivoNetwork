@@ -1,21 +1,27 @@
 ﻿$(() => {
-    let ddlShopCountry = $("#shop-country");
-    let ddlArtists = $("select.artist");
-    let otherData = $(".other-data");
-    let common = $("#common");
+    let canvas = document.getElementById("canvas");
+    let ctx = canvas.getContext("2d");
 
-    ddlShopCountry.change(() => {
-        let value = ddlShopCountry.val();
+    let startAngle = 0;
+    let endAngle = Math.PI / 360;
 
-        ddlArtists.addClass("d-none");
-        ddlArtists.filter(`[data-name="${value}"]`).removeClass("d-none");
+    ctx.lineWidth = 1;
 
-        otherData.addClass("d-none");
-        otherData.filter(`[data-name="${value}"]`).removeClass("d-none");
+    setInterval(function () {
+        update();
+        draw();
+    }, 10);
 
-        common.addClass("d-none");
-        if (value) {
-            common.removeClass("d-none");
-        }
-    });
+    function update() {
+        startAngle += 1 / 72;
+        endAngle += 1 / 36;
+    }
+
+    function draw() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height)
+
+        ctx.beginPath();
+        ctx.arc(200, 200, 20, startAngle, endAngle);
+        ctx.stroke();
+    }
 });

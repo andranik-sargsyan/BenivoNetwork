@@ -23,9 +23,12 @@
                 <a class="navbar-brand" href="~/">
                     <img id="bn-logo" src="~/Content/Images/logo.png" alt="Benivo Network" />
                 </a>
-                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+                @if (Request.IsAuthenticated)
+                {
+                    <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                }
                 <div class="navbar-collapse collapse" id="navbar-collapse">
                     @if (Request.IsAuthenticated)
                     {
@@ -33,7 +36,6 @@
                             <li class="nav-item">
                                 <!--FIX - make autocomplete-->
                                 <input id="bn-search" class="form-control me-2 mt-2 mt-md-0" type="search" placeholder="Search..." aria-label="Search...">
-
                             </li>
                         </ul>
                         <ul class="navbar-nav mb-2 mb-md-0">

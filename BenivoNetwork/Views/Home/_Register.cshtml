@@ -6,6 +6,12 @@
 {
     @Html.HiddenFor(m => m.ReturnUrl, new { id = "RegisterReturnUrl" })
     <h2>Register</h2>
+    if (!ViewData.ModelState.IsValid)
+    {
+        <div class="text-danger">
+            @Html.ValidationSummary()
+        </div>
+    }
     <div class="row">
         <div class="col-md-6">
             @Html.LabelFor(m => m.FirstName)

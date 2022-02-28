@@ -1,3 +1,4 @@
+using BenivoNetwork.BLL.Configuration;
 using BenivoNetwork.Configuration;
 using Newtonsoft.Json;
 using System;
@@ -25,6 +26,7 @@ namespace BenivoNetwork
             GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
 
             SimpleInjectorConfig.Register(GlobalConfiguration.Configuration);
+            AutoMapperConfig.Register();
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
