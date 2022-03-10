@@ -6,6 +6,7 @@ namespace BenivoNetwork.Common.Models
     public class UserModel
     {
         public int ID { get; set; }
+        public string UserName { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public RoleEnum Role { get; set; }
@@ -13,5 +14,6 @@ namespace BenivoNetwork.Common.Models
         public DateTime? DateOfBirth { get; set; }
         public GenderEnum? Gender { get; set; }
         public bool? IsMarried { get; set; }
+        public string ImageURL { get; set; }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using BenivoNetwork.BLL.Services;
 using BenivoNetwork.Common.Models;
+using BenivoNetwork.Filters;
+using System.Security.Claims;
 using System.Web.Mvc;
 
 namespace BenivoNetwork.Controllers
@@ -25,18 +27,13 @@ namespace BenivoNetwork.Controllers
         }
 
         [HttpGet]
-        public ActionResult UserProfile(int? id) //TODO: param? //alternate username with ? param
+        public ActionResult UserProfile(string id)
         {
-            if (!id.HasValue)
-            {
-                //TODO: fix or add not found page
-                //TODO: or maybe use global exception handling (with try/catch for now - but explain it with Global.asax _OnError~)
-                return View("Error");
-            }
+            var model = _userService.GetUser(id);
 
-            var model = _userService.GetUser(id.Value);
-
-            return View(model);
+            return model == null
+                ? View("_NotFound")
+                : View(model);
         }
 
         [HttpGet]
@@ -83,26 +80,71 @@ namespace BenivoNetwork.Controllers
 
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult Login(LoginModel model)
+        [FormName("Login")]
+        public ActionResult Welcome(LoginModel model)
         {
             if (!ModelState.IsValid)
             {
-                return View("Welcome", new WelcomeModel(model));
+                return View(new WelcomeModel(model));
             }
 
-            var isSuccessful = _accountService.Login(model);
-
-            if (isSuccessful)
+            var loginResult = _accountService.Login(model);
+            if (!loginResult.IsSuccessful)
             {
-                if (!string.IsNullOrWhiteSpace(model.ReturnUrl))
+                var returnModel = new WelcomeModel(model)
                 {
-                    return Redirect(model.ReturnUrl);
-                }
+                    ErrorMessage = loginResult.Message
+                };
 
-                return RedirectToAction("Index");
+                return View(returnModel);
             }
 
-            return View("Welcome", new WelcomeModel(model));
+            if (!string.IsNullOrWhiteSpace(model.ReturnUrl))
+            {
+                return Redirect(model.ReturnUrl);
+            }
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [FormName("Register")]
+        public ActionResult Welcome(RegisterModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(new WelcomeModel(model));
+            }
+
+            var registerResult = _accountService.Register(model);
+            if (!registerResult.IsSuccessful)
+            {
+                var returnModel = new WelcomeModel(model)
+                {
+                    ErrorMessage = registerResult.Message
+                };
+
+                return View(returnModel);
+            }
+
+            var loginResult = _accountService.Login(new LoginModel
+            {
+                Login = model.Email,
+                Password = model.Password
+            });
+
+            if (!loginResult.IsSuccessful)
+            {
+                var returnModel = new WelcomeModel(model)
+                {
+                    ErrorMessage = loginResult.Message
+                };
+
+                return View(returnModel);
+            }
+
+            return RedirectToAction("UserProfile", new { id = registerResult.ID });
         }
 
         [HttpPost]
@@ -112,39 +154,6 @@ namespace BenivoNetwork.Controllers
             _accountService.Logout();
 
             return JsonNet("OK");
-        }
-
-        [HttpPost]
-        [AllowAnonymous]
-        public ActionResult Register(RegisterModel model)
-        {
-            //TODO: check Register and Login together
-
-            //TODO: validate via ModelState
-
-            var registerResult = _accountService.Register(model);
-
-            //TODO: error message
-            if (!registerResult.IsSuccessful)
-            {
-                return RedirectToAction("Welcome", new { ReturnUrl = model.ReturnUrl });
-            }
-
-            //TODO: pass model's sub model
-            var isSuccessful = _accountService.Login(new LoginModel
-            {
-                Login = model.Email,
-                Password = model.Password
-            });
-
-            //FIX
-            if (isSuccessful)
-            {
-                //TODO: fix ID
-                return RedirectToAction("UserProfile", new { id = registerResult.ID });
-            }
-
-            return View("Welcome", new WelcomeModel(model));
         }
     }
 }

@@ -1,11 +1,11 @@
-﻿using BenivoNetwork.Common.Enums;
+﻿using BenivoNetwork.BLL.Extensions;
+using BenivoNetwork.Common.Enums;
 using BenivoNetwork.Common.Models;
 using BenivoNetwork.DAL;
 using BenivoNetwork.DAL.Interfaces;
+using Newtonsoft.Json;
 using System;
 using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
 using System.Web;
 using System.Web.Security;
 
@@ -23,32 +23,51 @@ namespace BenivoNetwork.BLL.Services
             _hashingService = hashingService;
         }
 
-        public bool Login(LoginModel model)
+        public LoginResultModel Login(LoginModel model)
         {
-            //TODO: login with email
-
             var user = _unitOfWork.UserRepository
-                .Get(u => u.UserName == model.Login)
+                .Get(u => u.UserName == model.Login || u.Email == model.Login)
                 .FirstOrDefault();
 
             if (user == null)
             {
-                return false;
+                return new LoginResultModel
+                {
+                    IsSuccessful = false,
+                    Message = "User is not found."
+                };
             }
 
             string passwordHash = _hashingService.GetHash($"{model.Password}{user.Salt}");
             if (passwordHash != user.Password)
             {
-                return false;
+                return new LoginResultModel
+                {
+                    IsSuccessful = false,
+                    Message = "Password is not correct."
+                };
             }
 
-            var authTicket = new FormsAuthenticationTicket(1, user.UserName, DateTime.Now, DateTime.Now.AddMinutes(10080), model.RememberMe, model.Login == "andranik" ? "Admin,User" : "User");
+            if (!user.IsActive)
+            {
+                return new LoginResultModel
+                {
+                    IsSuccessful = false,
+                    Message = "User is not active."
+                };
+            }
+
+            var userData = JsonConvert.SerializeObject(user.MapTo<AccountModel>());
+            var authTicket = new FormsAuthenticationTicket(1, user.UserName, DateTime.Now, DateTime.Now.AddMinutes(10080), model.RememberMe, userData);
             var encryptedTicket = FormsAuthentication.Encrypt(authTicket);
             var authCookie = new HttpCookie(FormsAuthentication.FormsCookieName, encryptedTicket);
 
             HttpContext.Current.Response.Cookies.Add(authCookie);
 
-            return true;
+            return new LoginResultModel
+            {
+                IsSuccessful = true
+            };
         }
 
         public void Logout()
@@ -58,11 +77,17 @@ namespace BenivoNetwork.BLL.Services
 
         public RegisterResultModel Register(RegisterModel model)
         {
+            if (_unitOfWork.UserRepository.Any(u => u.Email == model.Email))
+            {
+                return new RegisterResultModel
+                {
+                    IsSuccessful = false,
+                    Message = "User is already registered."
+                };
+            }
+
             var random = new Random();
             var salt = random.Next(10000, 100000).ToString();
-
-            //TODO: check if user already exists
-
             string passwordHash = _hashingService.GetHash($"{model.Password}{salt}");
 
             var user = new User

@@ -7,6 +7,8 @@ namespace BenivoNetwork.DAL.Interfaces
 {
     public interface IRepository<TEntity>
     {
+        bool Any(Func<TEntity, bool> filter);
+
         IEnumerable<TEntity> Get(
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,

@@ -15,11 +15,13 @@ namespace BenivoNetwork.BLL.Services
             _unitOfWork = unitOfWork;
         }
 
-        public UserModel GetUser(int id)
+        public UserModel GetUser(string id)
         {
-            var user = _unitOfWork.UserRepository.GetByID(id);
+            var isInteger = int.TryParse(id, out int userId);
 
-            //TODO: check if user exists
+            var user = isInteger
+                ? _unitOfWork.UserRepository.GetByID(userId)
+                : _unitOfWork.UserRepository.Get(u => u.UserName == id).FirstOrDefault();
 
             return user.MapTo<UserModel>();
         }

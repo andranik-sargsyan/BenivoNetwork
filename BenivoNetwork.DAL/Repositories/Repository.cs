@@ -18,6 +18,11 @@ namespace BenivoNetwork.DAL.Repositories
             _dbSet = context.Set<TEntity>();
         }
 
+        public bool Any(Func<TEntity, bool> filter)
+        {
+            return _dbSet.Any(filter);
+        }
+
         public virtual IEnumerable<TEntity> Get(
             Expression<Func<TEntity, bool>> filter = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,

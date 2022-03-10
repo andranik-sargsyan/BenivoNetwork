@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace BenivoNetwork
 {
@@ -7,6 +6,7 @@ namespace BenivoNetwork
     {
         public static void RegisterBundles(BundleCollection bundles)
         {
+            //TODO: check debug mode and use
             //BundleTable.EnableOptimizations = true;
         }
     }

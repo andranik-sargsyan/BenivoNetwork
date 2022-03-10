@@ -1,8 +1,7 @@
 ﻿namespace BenivoNetwork.Common.Models
 {
-    public class RegisterResultModel
+    public class RegisterResultModel : ResultModel
     {
-        public bool IsSuccessful { get; set; }
         public int ID { get; set; }
     }
 }

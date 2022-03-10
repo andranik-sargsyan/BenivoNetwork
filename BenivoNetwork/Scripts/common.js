@@ -3,6 +3,7 @@
     let txtSearch = $("#bn-search");
     let btnLogout = $("#bn-logout");
 
+    //AJAX loading animation
     $(document).on({
         ajaxStart: function () {
             divLoader.removeClass("d-none");
@@ -12,6 +13,7 @@
         }
     });
 
+    //Search
     txtSearch.keydown(function (e) {
         var term = txtSearch.val();
         if (term.length < 2 || e.keyCode != 13) {
@@ -21,6 +23,7 @@
         window.location.href = `${_searchURL}?term=${term}`;
     });
 
+    //Logout
     btnLogout.click(function (e) {
         e.preventDefault();
 
@@ -30,6 +33,11 @@
                 location.href = _welcomeURL;
             }
         });
+    });
+        
+    //Date pickers
+    $("input.bn-date-input").datepicker({
+        dateFormat: "dd/mm/yy"
     });
 });
 

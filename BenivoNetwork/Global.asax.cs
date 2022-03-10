@@ -1,7 +1,11 @@
 using BenivoNetwork.BLL.Configuration;
+using BenivoNetwork.Common.Models;
 using BenivoNetwork.Configuration;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Security.Claims;
 using System.Security.Principal;
 using System.Web;
 using System.Web.Http;
@@ -16,6 +20,9 @@ namespace BenivoNetwork
     {
         protected void Application_Start()
         {
+            SimpleInjectorConfig.Register(GlobalConfiguration.Configuration);
+            AutoMapperConfig.Register();
+
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
@@ -24,9 +31,6 @@ namespace BenivoNetwork
 
             GlobalConfiguration.Configuration.Formatters.JsonFormatter.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             GlobalConfiguration.Configuration.Formatters.Remove(GlobalConfiguration.Configuration.Formatters.XmlFormatter);
-
-            SimpleInjectorConfig.Register(GlobalConfiguration.Configuration);
-            AutoMapperConfig.Register();
         }
 
         protected void Application_AuthenticateRequest(object sender, EventArgs e)
@@ -47,11 +51,32 @@ namespace BenivoNetwork
                 return;
             }
 
-            var roles = authTicket.UserData.Split(',');
+            _accountModel = JsonConvert.DeserializeObject<AccountModel>(authTicket.UserData);
             if (Context.User != null)
             {
-                Context.User = new GenericPrincipal(Context.User.Identity, roles);
+                Context.User = new GenericPrincipal(Context.User.Identity, new[] { _accountModel.Role.ToString() });
             }
         }
+        
+        protected void Application_PostAuthenticateRequest()
+        {
+            if (Request.IsAuthenticated)
+            {
+                var identity = ClaimsPrincipal.Current.Identities.First();
+
+                identity.AddClaims(new List<Claim>
+                {
+                    new Claim("ID", _accountModel.ID.ToString()),
+                    new Claim("FirstName", _accountModel.FirstName),
+                    new Claim("LastName", _accountModel.LastName),
+                    new Claim("UserName", _accountModel.UserName),
+                    new Claim("Email", _accountModel.Email),
+                    new Claim("ImageURL", _accountModel.ImageURL ?? string.Empty),
+                    new Claim("Role", _accountModel.Role.ToString())
+                });
+            }
+        }
+
+        private AccountModel _accountModel;
     }
 }

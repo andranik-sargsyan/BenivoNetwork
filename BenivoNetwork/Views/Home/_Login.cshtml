@@ -2,14 +2,22 @@
 
 @model LoginModel
 
-@using (Html.BeginForm("Login", "Home", FormMethod.Post, new { id = "bn-form-login", @class = "border p-3" }))
+@using (Html.BeginForm("Welcome", "Home", FormMethod.Post, new { id = "bn-form-login", @class = "border p-3" }))
 {
+    @Html.Hidden("FormName", "Login", new { id = "LoginFormName" })
     @Html.HiddenFor(m => m.ReturnUrl, new { id = "LoginReturnUrl" })
     <h2>Login</h2>
-    if (!ViewData.ModelState.IsValid)
+    if (Request["FormName"] == "Login")
     {
         <div class="text-danger">
-            @Html.ValidationSummary()
+            @if (!ViewData.ModelState.IsValid)
+            {
+                @Html.ValidationSummary()
+            }
+            else if (Model.ParentModel.ErrorMessage != null)
+            {
+                <text>@Model.ParentModel.ErrorMessage</text>
+            }
         </div>
     }
     <div class="form-group mb-1">

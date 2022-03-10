@@ -5,6 +5,10 @@ main > .container {
     padding-bottom: 20px;
 }
 
+.nav-item img.bn-profile-pic {
+    object-fit: cover;
+}
+
 #bn-logo {
     height: 20px;
     margin-top: -6px;

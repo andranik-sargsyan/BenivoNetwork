@@ -4,7 +4,7 @@ namespace BenivoNetwork.BLL.Services
 {
     public interface IAccountService
     {
-        bool Login(LoginModel model);
+        LoginResultModel Login(LoginModel model);
         void Logout();
         RegisterResultModel Register(RegisterModel model);
     }

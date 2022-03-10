@@ -5,11 +5,9 @@ namespace BenivoNetwork.Controllers
 {
     public class CommentController : ApiController
     {
-        private readonly IUserService _userService;
-
-        public CommentController(IUserService userService)
+        public CommentController()
         {
-            _userService = userService;
+
         }
     }
 }

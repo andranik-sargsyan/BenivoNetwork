@@ -1,3 +1,12 @@
 ﻿.bn-profile-box {
     margin-bottom: 10px;
 }
+
+.bn-main-pic {
+    width: 100%;
+    padding-bottom: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+}

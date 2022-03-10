@@ -2,14 +2,22 @@
 
 @model RegisterModel
 
-@using (Html.BeginForm("Register", "Home", FormMethod.Post, new { id = "bn-form-register", @class = "border p-3 mt-3" }))
+@using (Html.BeginForm("Welcome", "Home", FormMethod.Post, new { id = "bn-form-register", @class = "border p-3 mt-3" }))
 {
+    @Html.Hidden("FormName", "Register", new { id = "RegisterFormName" })
     @Html.HiddenFor(m => m.ReturnUrl, new { id = "RegisterReturnUrl" })
     <h2>Register</h2>
-    if (!ViewData.ModelState.IsValid)
+    if (Request["FormName"] == "Register")
     {
         <div class="text-danger">
-            @Html.ValidationSummary()
+            @if (!ViewData.ModelState.IsValid)
+            {
+                @Html.ValidationSummary()
+            }
+            else if (Model.ParentModel.ErrorMessage != null)
+            {
+                <text>@Model.ParentModel.ErrorMessage</text>
+            }
         </div>
     }
     <div class="row">

@@ -167,9 +167,11 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Enums\TestEnum.cs" />
+    <Compile Include="Filters\FormNameAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -202,6 +204,24 @@
     <Content Include="Content\Images\ad-big.gif" />
     <Content Include="Content\Images\ad-small.gif" />
     <Content Include="Content\Images\user.png" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\AUTHORS.txt" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\external\jquery\jquery.js" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\index.html" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\jquery-ui.css" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\jquery-ui.js" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\jquery-ui.min.css" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\jquery-ui.min.js" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\jquery-ui.structure.css" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\jquery-ui.structure.min.css" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\jquery-ui.theme.css" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\jquery-ui.theme.min.css" />
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\LICENSE.txt" />
     <Content Include="Scripts\test.js" />
     <Content Include="Scripts\login-register.js" />
     <Content Include="Scripts\messages.js" />
@@ -271,6 +291,7 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Plugins\jquery-ui-1.13.1\package.json" />
     <None Include="packages.config" />
     <Content Include="Views\Home\UserProfile.cshtml" />
     <Content Include="Views\Home\Test.cshtml" />
@@ -282,6 +303,7 @@
     <Content Include="Views\Home\Welcome.cshtml" />
     <Content Include="Views\Home\_Login.cshtml" />
     <Content Include="Views\Home\_Register.cshtml" />
+    <Content Include="Views\Shared\_NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

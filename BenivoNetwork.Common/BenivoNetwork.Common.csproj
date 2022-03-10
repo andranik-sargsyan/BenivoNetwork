@@ -37,6 +37,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,7 +48,11 @@
   <ItemGroup>
     <Compile Include="Enums\RoleEnum.cs" />
     <Compile Include="Enums\GenderEnum.cs" />
+    <Compile Include="Helpers\ClaimHelper.cs" />
+    <Compile Include="Models\LoginResultModel.cs" />
     <Compile Include="Models\RegisterResultModel.cs" />
+    <Compile Include="Models\ResultModel.cs" />
+    <Compile Include="Models\AccountModel.cs" />
     <Compile Include="Models\WelcomeModel.cs" />
     <Compile Include="Models\RegisterModel.cs" />
     <Compile Include="Models\SearchResultModel.cs" />
