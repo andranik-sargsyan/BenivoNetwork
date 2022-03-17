@@ -4,13 +4,14 @@
     var imageURL = ClaimHelper.GetClaim("ImageURL");
     if (string.IsNullOrEmpty(imageURL))
     {
+        //TODO: fix with config
         imageURL = "/Content/Images/user.png";
     }
 
     var firstName = ClaimHelper.GetClaim("FirstName");
     var id = ClaimHelper.GetClaim("ID");
     var email = ClaimHelper.GetClaim("Email");
-    var routeId = email == User.Identity.Name ? id : User.Identity.Name;
+    var routeId = User.Identity.Name == email ? id : User.Identity.Name;
 }
 
 <!DOCTYPE html>
@@ -118,10 +119,8 @@
             @RenderBody()
         </div>
 
-        <!--FIX-->
-        <div id="bn-loader" class="d-none" style="position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; background-color: #80808054; display: flex; align-items: center; justify-content: center;">
-            <!--FIX-->
-            <img src="https://i.stack.imgur.com/hzk6C.gif" />
+        <div id="bn-loader" class="d-none">
+            <img src="~/Content/Images/loader.gif" alt="Loading..." />
         </div>
     </main>
 

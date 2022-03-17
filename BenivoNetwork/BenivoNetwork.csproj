@@ -167,6 +167,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\BaseApiController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -176,9 +178,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\JsonNetResult.cs" />
+    <Compile Include="Models\ResponseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Images\loader.gif" />
     <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-grid.css" />
     <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-grid.min.css" />
     <Content Include="Content\Plugins\bootstrap.5.1.2\css\bootstrap-grid.rtl.css" />
@@ -304,6 +308,7 @@
     <Content Include="Views\Home\_Login.cshtml" />
     <Content Include="Views\Home\_Register.cshtml" />
     <Content Include="Views\Shared\_NotFound.cshtml" />
+    <Content Include="Views\Home\_Messages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

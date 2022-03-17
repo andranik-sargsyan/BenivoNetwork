@@ -50,6 +50,8 @@
     <Compile Include="Enums\GenderEnum.cs" />
     <Compile Include="Helpers\ClaimHelper.cs" />
     <Compile Include="Models\LoginResultModel.cs" />
+    <Compile Include="Models\MessageModel.cs" />
+    <Compile Include="Models\ConversationModel.cs" />
     <Compile Include="Models\RegisterResultModel.cs" />
     <Compile Include="Models\ResultModel.cs" />
     <Compile Include="Models\AccountModel.cs" />

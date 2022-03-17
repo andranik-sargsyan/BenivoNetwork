@@ -2,6 +2,7 @@
     let divLoader = $("#bn-loader");
     let txtSearch = $("#bn-search");
     let btnLogout = $("#bn-logout");
+    let datePickers = $("input.bn-date-input");
 
     //AJAX loading animation
     $(document).on({
@@ -28,7 +29,7 @@
         e.preventDefault();
 
         _helpers.callAJAX(_logoutURL, "POST", undefined, function (data) {
-            if (data == "OK") {
+            if (data.IsSuccessful) {
                 //TODO: use common response
                 location.href = _welcomeURL;
             }
@@ -36,7 +37,7 @@
     });
         
     //Date pickers
-    $("input.bn-date-input").datepicker({
+    datePickers.datepicker({
         dateFormat: "dd/mm/yy"
     });
 });
@@ -46,6 +47,12 @@ let _helpers = {
         min = Math.ceil(min);
         max = Math.floor(max);
         return Math.floor(Math.random() * (max - min + 1)) + min;
+    },
+    openURL: url => {
+        let link = document.createElement("a");
+        link.setAttribute("href", url);
+        link.setAttribute("target", "_blank");
+        link.click();
     },
     callAJAX: (url, type, data, successCallback, errorCallback) => {
         $.ajax({

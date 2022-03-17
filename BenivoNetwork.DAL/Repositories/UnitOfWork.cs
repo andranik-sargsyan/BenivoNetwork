@@ -9,6 +9,7 @@ namespace BenivoNetwork.DAL.Repositories
 
         public IUserRepository UserRepository { get; set; }
         public IPostRepository PostRepository { get; set; }
+        public IMessageRepository MessageRepository { get; set; }
 
         public UnitOfWork()
         {
@@ -16,6 +17,7 @@ namespace BenivoNetwork.DAL.Repositories
 
             UserRepository = new UserRepository(_context);
             PostRepository = new PostRepository(_context);
+            MessageRepository = new MessageRepository(_context);
         }
 
         public void Commit()

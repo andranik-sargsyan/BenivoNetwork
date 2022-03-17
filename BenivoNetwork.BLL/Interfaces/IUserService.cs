@@ -7,5 +7,6 @@ namespace BenivoNetwork.BLL.Services
     {
         UserModel GetUser(string id);
         List<SearchResultModel> SearchUsers(string term);
+        void Update(UserModel model);
     }
 }

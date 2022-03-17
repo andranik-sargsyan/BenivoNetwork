@@ -51,9 +51,11 @@
     <Compile Include="Extensions\AutoMapperExtensions.cs" />
     <Compile Include="Interfaces\IHashingService.cs" />
     <Compile Include="Interfaces\IAccountService.cs" />
+    <Compile Include="Interfaces\IMessageService.cs" />
     <Compile Include="Interfaces\IUserService.cs" />
     <Compile Include="Services\HashingService.cs" />
     <Compile Include="Services\AccountService.cs" />
+    <Compile Include="Services\MessageService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

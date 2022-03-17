@@ -1,0 +1,22 @@
+﻿@using BenivoNetwork.Common.Models
+
+@model IEnumerable<MessageModel>
+
+@foreach (var message in Model)
+{
+    string fromUserClass = message.IsFromUser ? "bn-to" : "bn-from";
+
+    <div class="bn-message @fromUserClass border p-2" data-id="@message.ID">
+        <p>@message.Text.Replace("\n", "<br />")</p>
+        <figcaption class="blockquote-footer">
+            <cite>@message.DateSent.ToString("dd/MM/yyyy HH:mm")</cite>
+            @*|*@
+            <!--FIX active-->
+            <!--<span class="bn-like bn-active">
+                <span>Like </span><span>👍</span>
+            </span>-->
+            <!--FIX users and count-->
+            <!--<span class="bn-like-count" title="User 1, User 2">2</span>-->
+        </figcaption>
+    </div>
+}

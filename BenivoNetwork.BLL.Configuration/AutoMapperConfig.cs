@@ -27,6 +27,7 @@ namespace BenivoNetwork.BLL.Configuration
             {
                 cfg.CreateMap<User, UserModel>();
                 cfg.CreateMap<User, AccountModel>();
+                cfg.CreateMap<Message, MessageModel>();
             });
 
             _mapper = new Mapper(config);

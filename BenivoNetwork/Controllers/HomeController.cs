@@ -1,23 +1,28 @@
 ﻿using BenivoNetwork.BLL.Services;
 using BenivoNetwork.Common.Models;
 using BenivoNetwork.Filters;
+using BenivoNetwork.Models;
+using System;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Web.Mvc;
 
 namespace BenivoNetwork.Controllers
 {
-    [Authorize]
     public class HomeController : BaseController
     {
         private readonly IAccountService _accountService;
         private readonly IUserService _userService;
+        private readonly IMessageService _messageService;
 
         public HomeController(
             IAccountService accountService,
-            IUserService userService)
+            IUserService userService,
+            IMessageService messageService)
         {
             _accountService = accountService;
             _userService = userService;
+            _messageService = messageService;
         }
 
         [HttpGet]
@@ -49,9 +54,19 @@ namespace BenivoNetwork.Controllers
         }
 
         [HttpGet]
-        public ActionResult Messages() //TODO: param?
+        public ActionResult Messages(int? id)
         {
-            return View();
+            var model = _messageService.GetConversations(id);
+
+            return View(model);
+        }
+
+        [HttpGet]
+        public ActionResult MessagesPartial(int id)
+        {
+            var model = _messageService.GetByUserID(id);
+
+            return PartialView("_Messages", model);
         }
 
         [HttpGet]
@@ -153,7 +168,7 @@ namespace BenivoNetwork.Controllers
         {
             _accountService.Logout();
 
-            return JsonNet("OK");
+            return JsonNet(new ResponseModel { IsSuccessful = true });
         }
     }
 }

@@ -5,24 +5,21 @@
 @model UserModel
 
 @{
-    ViewBag.Title = "User Profile";
+    ViewBag.Title = Model.FullName;
 
-    var imageURL = Model.ImageURL;
-    if (string.IsNullOrEmpty(imageURL))
-    {
-        imageURL = "/Content/Images/user.png";
-    }
-
-    var modelId = Model.ID.ToString();
+    var modelID = Model.ID.ToString();
     var modelDateOfBirth = Model.DateOfBirth.HasValue
         ? Model.DateOfBirth.Value.ToString("dd/MM/yyyy")
         : string.Empty;
 
-    var id = ClaimHelper.GetClaim("ID");
+    var claimID = ClaimHelper.GetClaim("ID");
+    var isAdmin = User.IsInRole("Admin");
 }
 
 <script type="text/javascript">
-    let _editUrl = "@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "User" })";
+    let _userURL = "@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "User" })";
+    let _userProfileURL = "@Url.Action("UserProfile", "Home")";
+    let _messagesURL = "@Url.Action("Messages", "Home")";
 </script>
 
 <link href="~/Styles/user-profile.css" rel="stylesheet" type="text/css" />
@@ -36,16 +33,43 @@
         <h3>Profile</h3>
         <div class="row">
             <div class="col-md-3">
-                <div id="bn-main-pic" class="bn-main-pic" style="background-image: url('@imageURL');" title="Click To Open"></div>
+                <div id="bn-main-pic" class="bn-main-pic" style="background-image: url('@Model.ActualImageURL');" title="Click To Open"></div>
             </div>
             <div class="col-md-9">
-                @Html.HiddenFor(m => m.ID)
-                <h4>@Model.FirstName @Model.LastName</h4>
+                <input type="hidden" id="ID" name="ID" value="@Model.ID" />
+
+                <div class="row">
+                    <div class="col-md-6 bn-display-input">
+                        <h4>
+                            <span class="bn-display-input">
+                                @Model.FullName
+                            </span>
+                        </h4>
+                    </div>
+
+                    <div class="col-md-3 bn-editor-input d-none">
+                        <h4>
+                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control form-control-sm", placeholder = "First Name" })
+                        </h4>
+                    </div>
+
+                    <div class="col-md-3 bn-editor-input d-none">
+                        <h4>
+                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control form-control-sm", placeholder = "Last Name" })
+                        </h4>
+                    </div>
+                </div>
 
                 <hr />
 
                 <div class="row">
                     <div class="col-md-4">
+                        <b>Email</b>
+                        <span>
+                            @Model.Email
+                            <br />
+                        </span>
+
                         <b>User Name</b>
                         <span class="bn-display-input">
                             @Model.UserName
@@ -56,52 +80,53 @@
                         </span>
 
                         <b>Role</b>
-                        <span class="bn-display-input">
+                        <span @if (Model.Role != RoleEnum.Admin) { <text> class="bn-display-input" </text> }>
                             @Model.Role
                             <br />
                         </span>
+                        @if (isAdmin && Model.Role != RoleEnum.Admin)
+                        {
+                            <span class="bn-editor-input d-none">
+                                @Html.EnumDropDownListFor(m => m.Role, new { @class = "form-control form-control-sm" })
+                            </span>
+                        }
+
+                        <b>Gender</b>
+                        <span class="bn-display-input">
+                            @(Model.Gender.HasValue
+                                ? Model.Gender.Value.ToString()
+                                : string.Empty)
+                            <br />
+                        </span>
                         <span class="bn-editor-input d-none">
-                            @Html.EnumDropDownListFor(m => m.Role, new { @class = "form-control form-control-sm" })
+                            @Html.EnumDropDownListFor(m => m.Gender, new { @class = "form-control form-control-sm" })
                         </span>
 
-                        @if (Model.Gender.HasValue)
-                        {
-                            <b>Gender</b>
-                            <span class="bn-display-input">
-                                @Model.Gender.Value
-                                <br />
-                            </span>
-                            <span class="bn-editor-input d-none">
-                                @Html.EnumDropDownListFor(m => m.Gender, new { @class = "form-control form-control-sm" })
-                            </span>
-                        }
+                        <b>Born</b>
+                        <span class="bn-display-input">
+                            @modelDateOfBirth
+                            <br />
+                        </span>
+                        <span class="bn-editor-input d-none">
+                            <input type="text" id="DateOfBirth" value="@modelDateOfBirth" class="bn-date-input form-control form-control-sm" />
+                        </span>
 
-                        @if (Model.DateOfBirth.HasValue)
-                        {
-                            <b>Born</b>
-                            <span class="bn-display-input">
-                                @modelDateOfBirth
-                                <br />
-                            </span>
-                            <span class="bn-editor-input d-none">
-                                <input type="text" id="DateOfBirth" value="@modelDateOfBirth" class="bn-date-input form-control form-control-sm" />
-                            </span>
-                        }
-
-                        @if (Model.IsMarried.HasValue)
-                        {
-                            <b>Marital status</b>
-                            <span class="bn-display-input">
-                                @(Model.IsMarried.Value ? "Married" : "Not Married")
-                                <br />
-                            </span>
-                            <span class="bn-editor-input d-none">
-                                <select id="IsMarried" class="form-control form-control-sm">
-                                    <option value="true" selected="@(Model.IsMarried)">Married</option>
-                                    <option value="false" selected="@(!Model.IsMarried)">Not Married</option>
-                                </select>
-                            </span>
-                        }
+                        <b>Marital status</b>
+                        <span class="bn-display-input">
+                            @(Model.IsMarried.HasValue
+                                ? Model.IsMarried.Value
+                                    ? "Married"
+                                    : "Not Married"
+                                : string.Empty)
+                            <br />
+                        </span>
+                        <span class="bn-editor-input d-none">
+                            <select id="IsMarried" class="form-control form-control-sm">
+                                <option selected="@(!Model.IsMarried.HasValue)"></option>
+                                <option value="true" selected="@(Model.IsMarried)">Married</option>
+                                <option value="false" selected="@(!Model.IsMarried)">Not Married</option>
+                            </select>
+                        </span>
 
                         <b>Last Visit</b> 01/01/2021 17:58<br />
                     </div>
@@ -109,16 +134,17 @@
 
                 <hr />
 
-                @if (modelId != id)
+                <input type="button" id="bn-btn-send-message" class="btn btn-secondary" value="Send Message" />
+                @if (modelID != claimID)
                 {
                     <input type="button" class="btn btn-secondary" value="Add Friend | Remove Friend" /><!--FIX-->
-                    if (User.IsInRole("Admin") && Model.Role != RoleEnum.Admin)
+                    if (isAdmin && Model.Role != RoleEnum.Admin)
                     {
                         //TODO: implement later
                         <input type="button" class="btn btn-secondary" value="Activate | Deactivate" /><!--FIX + COLOR (GREEN/RED)-->
                     }
                 }
-                @if (User.IsInRole("Admin") || modelId == id)
+                @if (isAdmin || modelID == claimID)
                 {
                     <input type="button" id="bn-btn-edit" class="btn btn-secondary" value="Edit" />
                     <input type="button" id="bn-btn-save" class="btn btn-primary d-none" value="Save" />

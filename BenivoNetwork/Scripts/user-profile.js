@@ -1,14 +1,25 @@
 ﻿$(() => {
+    let btnSendMessage = $("#bn-btn-send-message");
     let btnEdit = $("#bn-btn-edit");
     let btnSave = $("#bn-btn-save");
     let btnCancel = $("#bn-btn-cancel");
     let displayInputs = $(".bn-display-input")
     let editorInputs = $(".bn-editor-input")
-    let mainImage = $(".bn-main-pic");
+    let mainImage = $("#bn-main-pic");
 
     mainImage.click(function() {
-        url = $(this).css('background-image').replace('url(', '').replace(')', '').replace(/\"/gi, "");
-        window.open(url);
+        let url = $(this)
+            .css('background-image')
+            .replace('url(', '')
+            .replace(')', '')
+            .replace(/\"/gi, "");
+
+        _helpers.openURL(url);
+    });
+
+    btnSendMessage.click(() => {
+        let id = $("#ID").val();
+        location.href = `${_messagesURL}/${id}`;
     });
 
     btnEdit.click(() => {
@@ -28,8 +39,10 @@
         var dateParts = $("#DateOfBirth").val().split("/");
         var dateOfBirthISO = dateParts.length == 3 ? `${dateParts[2]}-${dateParts[1]}-${dateParts[0]}` : "";
 
-        _helpers.callAJAX(_editUrl, "PUT", {
+        _helpers.callAJAX(_userURL, "PUT", {
             ID: $("#ID").val(),
+            FirstName: $("#FirstName").val(),
+            LastName: $("#LastName").val(),
             UserName: $("#UserName").val(),
             Role: $("#Role").val(),
             Gender: $("#Gender").val(),
@@ -37,8 +50,17 @@
             IsMarried: $("#IsMarried").val()
         }, function (response) {
             //TODO: handle response errors
+            //TODO: show in notification
+
+            //TODO: temporary
+            let id = $("#ID").val();
+            location.href = `${_userProfileURL}/${id}`;
 
             cancelEdit();
+        }, function (response) {
+            //TODO: handle response errors
+            //TODO: change to notification
+            alert(response.responseJSON.Message);
         });
     });
 

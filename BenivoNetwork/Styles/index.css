@@ -1,10 +1,10 @@
-﻿.bn-friend {
+﻿.bn-user {
     margin-bottom: 10px;
     cursor: pointer;
     position: relative;
 }
 
-    .bn-friend > span {
+    .bn-user > span {
         font-weight: bold;
         color: #444;
     }
@@ -19,6 +19,6 @@
     cursor: default;
 }
 
-.bn-friend:hover .bn-profile-box {
+.bn-user:hover .bn-profile-box {
     display: block;
 }

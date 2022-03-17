@@ -96,7 +96,9 @@ namespace BenivoNetwork.BLL.Services
                 LastName = model.LastName,
                 IsActive = true,
                 Email = model.Email,
-                UserName = model.Email,
+                UserName = model.Email.Length > 64
+                    ? model.Email.Substring(64) 
+                    : model.Email,
                 Password = passwordHash,
                 Salt = salt,
                 Role = RoleEnum.User

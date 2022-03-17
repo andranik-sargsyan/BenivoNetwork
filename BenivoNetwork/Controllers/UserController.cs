@@ -1,10 +1,11 @@
 ﻿using BenivoNetwork.BLL.Services;
 using BenivoNetwork.Common.Models;
+using System;
 using System.Web.Http;
 
 namespace BenivoNetwork.Controllers
 {
-    public class UserController : ApiController
+    public class UserController : BaseApiController
     {
         private readonly IUserService _userService;
 
@@ -15,11 +16,21 @@ namespace BenivoNetwork.Controllers
 
         public IHttpActionResult Put(UserModel model)
         {
-            //ModelState.IsValid is not gonna work here (explain why)
+            if (!ModelState.IsValid)
+            {
+                //TODO: fix to ResponseModel with OK later, remove error handling
+                return BadRequest(ModelState);
+            }
 
-            //TODO: validations (both data and permission)
-
-            //TODO: handle response errors with custom response
+            try
+            {
+                _userService.Update(model);
+            }
+            catch (Exception ex)
+            {
+                //TODO: fix to ResponseModel with OK later, remove error handling
+                return BadRequest(ex.Message);
+            }
 
             return Ok();
         }

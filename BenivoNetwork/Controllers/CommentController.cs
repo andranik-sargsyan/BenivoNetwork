@@ -1,9 +1,6 @@
-﻿using BenivoNetwork.BLL.Services;
-using System.Web.Http;
-
-namespace BenivoNetwork.Controllers
+﻿namespace BenivoNetwork.Controllers
 {
-    public class CommentController : ApiController
+    public class CommentController : BaseApiController
     {
         public CommentController()
         {

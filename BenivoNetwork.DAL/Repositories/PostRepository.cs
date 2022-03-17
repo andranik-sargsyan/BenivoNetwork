@@ -2,9 +2,9 @@
 
 namespace BenivoNetwork.DAL.Repositories
 {
-    public class PostRepository : Repository<Post>, IPostRepository
+    public class MessageRepository : Repository<Message>, IMessageRepository
     {
-        public PostRepository(BenivoNetworkEntities context) : base(context)
+        public MessageRepository(BenivoNetworkEntities context) : base(context)
         {
         }
     }
