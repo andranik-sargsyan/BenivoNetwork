@@ -105,7 +105,6 @@ namespace BenivoNetwork.BLL.Services
             };
 
             _unitOfWork.UserRepository.Insert(user);
-
             _unitOfWork.Commit();
 
             return new RegisterResultModel

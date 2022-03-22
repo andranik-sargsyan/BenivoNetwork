@@ -1,0 +1,24 @@
+﻿@using BenivoNetwork.Common.Models
+
+@model IEnumerable<UserModel>
+
+@foreach (var user in Model)
+{
+    <div class="bn-user">
+        <a href="@Url.Action("UserProfile", "Home", new { id = user.RouteID })" class="bn-profile-link">
+            <img class="bn-profile-pic" src="@user.ActualImageURL" alt="User Profile Pic">
+            <span>@user.FullName</span>
+        </a>
+        <!--FIX bn-online|bn-offline date too-->
+        @*<span class="bn-online-status bn-online" title="20:08"></span>*@
+        <div class="bn-profile-box">
+            <img class="bn-profile-pic" src="@user.ActualImageURL" alt="User Profile Pic" />
+            <span>
+                <a href="@Url.Action("UserProfile", "Home", new { id = user.RouteID })">@user.FullName</a><br />
+                <span><b>Birthday</b> @user.DateOfBirthString</span><br />
+                <span><b>Gender</b> @user.GenderString</span><br />
+                <!--Other -->
+            </span>
+        </div>
+    </div>
+}

@@ -18,8 +18,7 @@ namespace BenivoNetwork.Controllers
         {
             if (!ModelState.IsValid)
             {
-                //TODO: fix to ResponseModel with OK later, remove error handling
-                return BadRequest(ModelState);
+                return Error(ModelErrors);
             }
 
             try
@@ -28,11 +27,10 @@ namespace BenivoNetwork.Controllers
             }
             catch (Exception ex)
             {
-                //TODO: fix to ResponseModel with OK later, remove error handling
-                return BadRequest(ex.Message);
+                return Error(ex);
             }
 
-            return Ok();
+            return Success();
         }
     }
 }

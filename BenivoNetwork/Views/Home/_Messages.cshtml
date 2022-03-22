@@ -7,7 +7,7 @@
     string fromUserClass = message.IsFromUser ? "bn-to" : "bn-from";
 
     <div class="bn-message @fromUserClass border p-2" data-id="@message.ID">
-        <p>@message.Text.Replace("\n", "<br />")</p>
+        <p>@Html.Raw(message.HtmlText)</p>
         <figcaption class="blockquote-footer">
             <cite>@message.DateSent.ToString("dd/MM/yyyy HH:mm")</cite>
             @*|*@

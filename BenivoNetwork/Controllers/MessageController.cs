@@ -1,6 +1,5 @@
 ﻿using BenivoNetwork.BLL.Services;
 using BenivoNetwork.Common.Models;
-using BenivoNetwork.Models;
 using System;
 using System.Web.Http;
 
@@ -26,8 +25,7 @@ namespace BenivoNetwork.Controllers
         {
             if (!ModelState.IsValid)
             {
-                //TODO: remove error handling?
-                return Error();
+                return Error(ModelErrors);
             }
 
             try
@@ -37,7 +35,7 @@ namespace BenivoNetwork.Controllers
             catch (Exception ex)
             {
                 //TODO: remove error handling
-                return Error(ex.Message);
+                return Error(ex);
             }
 
             return Success();

@@ -31,7 +31,7 @@ namespace BenivoNetwork.BLL.Services
                         .Concat(user.SentMessages.Where(m => m.ToUserID == claimID))
                         .OrderByDescending(m => m.DateSent)
                         .FirstOrDefault()
-                        ?.MapTo<MessageModel>();
+                        .MapTo<MessageModel>();
 
                 if (lastMessage != null)
                 {
@@ -108,7 +108,6 @@ namespace BenivoNetwork.BLL.Services
             };
 
             _unitOfWork.MessageRepository.Insert(message);
-
             _unitOfWork.Commit();
         }
 

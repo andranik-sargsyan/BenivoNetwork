@@ -1,4 +1,5 @@
 ﻿@using BenivoNetwork.Common.Enums
+@using BenivoNetwork.Common.Extensions
 @using BenivoNetwork.Common.Helpers
 @using BenivoNetwork.Common.Models
 
@@ -8,9 +9,6 @@
     ViewBag.Title = Model.FullName;
 
     var modelID = Model.ID.ToString();
-    var modelDateOfBirth = Model.DateOfBirth.HasValue
-        ? Model.DateOfBirth.Value.ToString("dd/MM/yyyy")
-        : string.Empty;
 
     var claimID = ClaimHelper.GetClaim("ID");
     var isAdmin = User.IsInRole("Admin");
@@ -18,7 +16,9 @@
 
 <script type="text/javascript">
     let _userURL = "@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "User" })";
-    let _userProfileURL = "@Url.Action("UserProfile", "Home")";
+    let _imageURL = "@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "Image" })";
+    let _friendshipURL = "@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "Friendship" })";
+    let _userProfileURL = "@Url.Action("UserProfile", "Home", new { id = string.Empty })";
     let _messagesURL = "@Url.Action("Messages", "Home")";
 </script>
 
@@ -33,7 +33,16 @@
         <h3>Profile</h3>
         <div class="row">
             <div class="col-md-3">
-                <div id="bn-main-pic" class="bn-main-pic" style="background-image: url('@Model.ActualImageURL');" title="Click To Open"></div>
+                <div id="bn-main-pic" class="bn-main-pic bn-display-input" style="background-image: url('@Model.ActualImageURL');" title="Click To Open"></div>
+                <div class="bn-editor-input d-none">
+                    <h6>Image</h6>
+                    <input type="file" name="ImageFile" id="ImageFile" class="form-control form-control-sm mb-2" />
+                    @Html.TextBoxFor(m => m.ImageURL, new { @class = "form-control form-control-sm", placeholder = "External Image URL" })
+                    <div class="mt-2 mb-2">
+                        <input type="button" id="bn-btn-upload-img" class="btn btn-primary" value="Upload" />
+                        <input type="button" id="bn-btn-remove-img" class="btn btn-secondary" value="Remove" />
+                    </div>
+                </div>
             </div>
             <div class="col-md-9">
                 <input type="hidden" id="ID" name="ID" value="@Model.ID" />
@@ -64,71 +73,87 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <b>Email</b>
-                        <span>
-                            @Model.Email
-                            <br />
-                        </span>
-
-                        <b>User Name</b>
-                        <span class="bn-display-input">
-                            @Model.UserName
-                            <br />
-                        </span>
-                        <span class="bn-editor-input d-none">
-                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control form-control-sm" })
-                        </span>
-
-                        <b>Role</b>
-                        <span @if (Model.Role != RoleEnum.Admin) { <text> class="bn-display-input" </text> }>
-                            @Model.Role
-                            <br />
-                        </span>
-                        @if (isAdmin && Model.Role != RoleEnum.Admin)
-                        {
-                            <span class="bn-editor-input d-none">
-                                @Html.EnumDropDownListFor(m => m.Role, new { @class = "form-control form-control-sm" })
+                        <div class="bn-profile-row">
+                            <b>Email</b>
+                            <span>
+                                @Model.Email
+                                <br />
                             </span>
-                        }
+                        </div>
 
-                        <b>Gender</b>
-                        <span class="bn-display-input">
-                            @(Model.Gender.HasValue
-                                ? Model.Gender.Value.ToString()
-                                : string.Empty)
-                            <br />
-                        </span>
-                        <span class="bn-editor-input d-none">
-                            @Html.EnumDropDownListFor(m => m.Gender, new { @class = "form-control form-control-sm" })
-                        </span>
+                        <div class="bn-profile-row">
+                            <!--FIX-->
+                            <b>Last Visit</b> 01/01/2021 17:58<br />
+                        </div>
 
-                        <b>Born</b>
-                        <span class="bn-display-input">
-                            @modelDateOfBirth
-                            <br />
-                        </span>
-                        <span class="bn-editor-input d-none">
-                            <input type="text" id="DateOfBirth" value="@modelDateOfBirth" class="bn-date-input form-control form-control-sm" />
-                        </span>
+                        <div class="bn-profile-row">
+                            @if (isAdmin)
+                            {
+                                <b>Role</b>
+                                <span @if (Model.Role != RoleEnum.Admin) { <text> class="bn-display-input" </text> }>
+                                    @Model.Role
+                                    <br />
+                                </span>
+                            }
+                            @if (isAdmin && Model.Role != RoleEnum.Admin)
+                            {
+                                <span class="bn-editor-input d-none">
+                                    @Html.EnumDropDownListFor(m => m.Role, new { @class = "form-control form-control-sm" })
+                                </span>
+                            }
+                        </div>
 
-                        <b>Marital status</b>
-                        <span class="bn-display-input">
-                            @(Model.IsMarried.HasValue
+                        <div class="bn-profile-row">
+                            <b>User Name</b>
+                            <span class="bn-display-input">
+                                @Model.UserName
+                                <br />
+                            </span>
+                            <span class="bn-editor-input d-none">
+                                @Html.TextBoxFor(m => m.UserName, new { @class = "form-control form-control-sm" })
+                            </span>
+                        </div>
+
+                        <div class="bn-profile-row">
+                            <b>Gender</b>
+                            <span class="bn-display-input">
+                                @Model.GenderString
+                                <br />
+                            </span>
+                            <span class="bn-editor-input d-none">
+                                @Html.EnumDropDownListFor(m => m.Gender, new { @class = "form-control form-control-sm" })
+                            </span>
+                        </div>
+
+                        <div class="bn-profile-row">
+                            <b>Born</b>
+                            <span class="bn-display-input">
+                                @Model.DateOfBirthString
+                                <br />
+                            </span>
+                            <span class="bn-editor-input d-none">
+                                <input type="text" id="DateOfBirth" value="@Model.DateOfBirthString" class="bn-date-input form-control form-control-sm" />
+                            </span>
+                        </div>
+
+                        <div class="bn-profile-row">
+                            <b>Marital status</b>
+                            <span class="bn-display-input">
+                                @(Model.IsMarried.HasValue
                                 ? Model.IsMarried.Value
                                     ? "Married"
                                     : "Not Married"
                                 : string.Empty)
-                            <br />
-                        </span>
-                        <span class="bn-editor-input d-none">
-                            <select id="IsMarried" class="form-control form-control-sm">
-                                <option selected="@(!Model.IsMarried.HasValue)"></option>
-                                <option value="true" selected="@(Model.IsMarried)">Married</option>
-                                <option value="false" selected="@(!Model.IsMarried)">Not Married</option>
-                            </select>
-                        </span>
-
-                        <b>Last Visit</b> 01/01/2021 17:58<br />
+                                <br />
+                            </span>
+                            <span class="bn-editor-input d-none">
+                                <select id="IsMarried" class="form-control form-control-sm">
+                                    <option selected="@(!Model.IsMarried.HasValue)"></option>
+                                    <option value="true" selected="@(Model.IsMarried)">Married</option>
+                                    <option value="false" selected="@(!Model.IsMarried)">Not Married</option>
+                                </select>
+                            </span>
+                        </div>
                     </div>
                 </div>
 
@@ -137,7 +162,11 @@
                 <input type="button" id="bn-btn-send-message" class="btn btn-secondary" value="Send Message" />
                 @if (modelID != claimID)
                 {
-                    <input type="button" class="btn btn-secondary" value="Add Friend | Remove Friend" /><!--FIX-->
+                    <input type="button" id="bn-btn-friend-action" class="btn btn-secondary" value="@Model.FriendStatus.GetDescription()" data-status="@Model.FriendStatus" />
+                    if (Model.FriendStatus == FriendStatusEnum.RequestReceived)
+                    {
+                        <input type="button" id="bn-btn-friend-action-cancel" class="btn btn-secondary" value="Cancel Request" />
+                    }
                     if (isAdmin && Model.Role != RoleEnum.Admin)
                     {
                         //TODO: implement later

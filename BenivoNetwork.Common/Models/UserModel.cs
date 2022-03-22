@@ -25,10 +25,13 @@ namespace BenivoNetwork.Common.Models
         public GenderEnum? Gender { get; set; }
         public bool? IsMarried { get; set; }
         public string ImageURL { get; set; }
+        public FriendStatusEnum FriendStatus { get; set; }
 
         public string FullName => $"{FirstName} {LastName}";
         public string RouteID => UserName == Email || UserName.Contains("@.+-") ? ID.ToString() : UserName;
         //TODO: fix with config
         public string ActualImageURL => string.IsNullOrWhiteSpace(ImageURL) ? "/Content/Images/user.png" : ImageURL;
+        public string DateOfBirthString => DateOfBirth.HasValue ? DateOfBirth.Value.ToString("dd/MM/yyyy") : string.Empty;
+        public string GenderString => Gender.HasValue ? Gender.Value.ToString() : string.Empty;
     }
 }

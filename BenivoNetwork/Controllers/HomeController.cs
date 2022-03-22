@@ -28,7 +28,13 @@ namespace BenivoNetwork.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            return View();
+            var model = new IndexModel
+            {
+                FriendUsers = _userService.GetFriendUsers(),
+                OtherUsers = _userService.GetOtherUsers()
+            };
+
+            return View(model);
         }
 
         [HttpGet]

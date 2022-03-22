@@ -12,5 +12,12 @@ namespace BenivoNetwork.Common.Models
         public string Text { get; set; }
         public DateTime DateSent { get; set; }
         public bool IsFromUser { get; set; }
+
+        public string HtmlText => Text
+            .Replace("\n", "<br />")
+            .Replace(":)", "🙂")
+            .Replace(":(", "😞")
+            .Replace(":D", "😂")
+            .Replace(":P", "😛");
     }
 }

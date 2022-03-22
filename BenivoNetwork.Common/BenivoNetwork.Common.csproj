@@ -46,9 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\FriendStatusEnum.cs" />
     <Compile Include="Enums\RoleEnum.cs" />
     <Compile Include="Enums\GenderEnum.cs" />
+    <Compile Include="Extensions\EnumExtensions.cs" />
     <Compile Include="Helpers\ClaimHelper.cs" />
+    <Compile Include="Models\IndexModel.cs" />
     <Compile Include="Models\LoginResultModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\ConversationModel.cs" />
