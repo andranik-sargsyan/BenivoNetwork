@@ -26,6 +26,11 @@
 
     txtMessage.keydown(function (e) {
         if (e.keyCode == 13 && !e.shiftKey) {
+            if (!txtMessage.val()) {
+                e.preventDefault();
+                return;
+            }
+
             sendMessage();
         }
     });
@@ -35,18 +40,20 @@
             //TODO: handle new message case
             let lastMessageID = divMessages.children().last().attr("data-id");
 
-            _helpers.callAJAX(`${_messagesURL}/${selectedUserID}?lastMessageID=${lastMessageID}`, "GET", null, function (response) {
-                if (response.IsSuccessful) {
-                    if (response.Data) {
-                        loadMessages();
+            if (lastMessageID) {
+                _helpers.callAJAX(`${_messageURL}/${selectedUserID}?lastMessageID=${lastMessageID}`, "GET", null, function (response) {
+                    if (response.IsSuccessful) {
+                        if (response.Data) {
+                            loadMessages();
+                        }
                     }
-                }
-                else {
-                    //TODO: temporary
-                    alert(response.Message);
-                    //TODO: show in notification
-                }
-            });
+                    else {
+                        //TODO: temporary
+                        alert(response.Message);
+                        //TODO: show in notification
+                    }
+                });
+            }
         }
     }, 5000);
 
@@ -62,7 +69,7 @@
             return;
         }
 
-        _helpers.callAJAX(_messagesURL, "POST", {
+        _helpers.callAJAX(_messageURL, "POST", {
             ToUserID: selectedUserID,
             Text: text
         }, function (response) {

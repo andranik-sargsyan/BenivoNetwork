@@ -53,6 +53,8 @@
     <Compile Include="Helpers\ClaimHelper.cs" />
     <Compile Include="Models\IndexModel.cs" />
     <Compile Include="Models\LoginResultModel.cs" />
+    <Compile Include="Models\TextFormModel.cs" />
+    <Compile Include="Models\PostModel.cs" />
     <Compile Include="Models\MessageModel.cs" />
     <Compile Include="Models\ConversationModel.cs" />
     <Compile Include="Models\RegisterResultModel.cs" />

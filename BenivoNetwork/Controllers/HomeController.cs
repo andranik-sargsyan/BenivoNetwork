@@ -14,15 +14,18 @@ namespace BenivoNetwork.Controllers
         private readonly IAccountService _accountService;
         private readonly IUserService _userService;
         private readonly IMessageService _messageService;
+        private readonly IPostService _postService;
 
         public HomeController(
             IAccountService accountService,
             IUserService userService,
-            IMessageService messageService)
+            IMessageService messageService,
+            IPostService postService)
         {
             _accountService = accountService;
             _userService = userService;
             _messageService = messageService;
+            _postService = postService;
         }
 
         [HttpGet]
@@ -30,6 +33,8 @@ namespace BenivoNetwork.Controllers
         {
             var model = new IndexModel
             {
+                //TODO: bring all posts, not mine only
+                Posts = _postService.Get(),
                 FriendUsers = _userService.GetFriendUsers(),
                 OtherUsers = _userService.GetOtherUsers()
             };

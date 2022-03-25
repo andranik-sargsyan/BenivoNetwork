@@ -6,6 +6,10 @@
     ViewBag.Title = "Home";
 }
 
+<script type="text/javascript">
+    let _postURL = "@Url.RouteUrl("DefaultApi", new { httproute = "", controller = "Post" })";
+</script>
+
 <link href="~/Styles/index.css" rel="stylesheet" type="text/css" />
 <script src="~/Scripts/index.js" type="text/javascript"></script>
 
@@ -19,70 +23,7 @@
             <textarea class="form-control" placeholder="What's on you mind?"></textarea>
         </div>
         <div id="bn-posts">
-            <div class="bn-post">
-                <div class="bn-post-content">
-                    <figure>
-                        <blockquote class="blockquote">
-                            <p>A well-known quote, contained in a blockquote element.</p>
-                        </blockquote>
-                        <figcaption class="blockquote-footer">
-                            By
-                            <a href="@Url.Action("UserProfile", "Home", new { id = 1 })" class="bn-profile-link">
-                                <img class="bn-profile-pic" src="~/Content/Images/user.png" alt="User Profile Pic" />
-                                <span>Lorem Ipsum</span>
-                            </a>
-                            on <cite>2021-09-21 00:43</cite>
-                        </figcaption>
-                    </figure>
-                </div>
-                <div class="bn-post-footer">
-                    <span class="bn-like">
-                        <span>Like </span><span>👍</span>
-                    </span>
-                    <span class="bn-like-count" title="User 1, User 2">45</span>
-                    <!--title - dynamic-->
-                    |
-                    <span class="bn-comment-count">8 Comments</span>
-                </div>
-                <div class="bn-comments-wrapper">
-                    <textarea class="form-control" placeholder="Your comment here..."></textarea>
-                    <div class="bn-comments">
-                        <div class="bn-comment">
-                            <a href="@Url.Action("UserProfile", "Home", new { id = 1 })" class="bn-profile-link">
-                                <img class="bn-profile-pic" src="~/Content/Images/user.png" alt="User Profile Pic" />
-                                <span>Lorem Ipsum</span>
-                            </a>
-                            <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
-                            <span class="bn-like bn-active">
-                                <span>Like </span><span>👍</span>
-                            </span>
-                            <span class="bn-like-count" title="User 1, User 2">2</span>
-                        </div>
-                        <div class="bn-comment">
-                            <a href="@Url.Action("UserProfile", "Home", new { id = 1 })" class="bn-profile-link">
-                                <img class="bn-profile-pic" src="~/Content/Images/user.png" alt="User Profile Pic" />
-                                <span>Lorem Ipsum</span>
-                            </a>
-                            <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
-                            <span class="bn-like bn-active">
-                                <span>Like </span><span>👍</span>
-                            </span>
-                            <span class="bn-like-count" title=""></span>
-                        </div>
-                        <div class="bn-comment">
-                            <a href="@Url.Action("UserProfile", "Home", new { id = 1 })" class="bn-profile-link">
-                                <img class="bn-profile-pic" src="~/Content/Images/user.png" alt="User Profile Pic" />
-                                <span>Lorem Ipsum</span>
-                            </a>
-                            <p class="mt-2">Mauris euismod eros at ipsum tincidunt volutpat. Praesent tempus ultrices ante a facilisis.</p>
-                            <span class="bn-like">
-                                <span>Like </span><span>👍</span>
-                            </span>
-                            <span class="bn-like-count" title=""></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            @Html.Partial("_Posts", Model.Posts)
             <!--ADD load more link or load on scroll or both one by one-->
         </div>
     </div>

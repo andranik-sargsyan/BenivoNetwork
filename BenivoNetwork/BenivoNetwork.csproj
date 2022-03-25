@@ -169,12 +169,12 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaseApiController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\PostController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\FriendshipController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Controllers\CommentController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Enums\TestEnum.cs" />
     <Compile Include="Filters\FormNameAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -314,6 +314,7 @@
     <Content Include="Views\Shared\_NotFound.cshtml" />
     <Content Include="Views\Home\_Messages.cshtml" />
     <Content Include="Views\Home\_Users.cshtml" />
+    <Content Include="Views\Home\_Posts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
