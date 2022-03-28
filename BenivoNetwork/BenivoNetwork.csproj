@@ -296,7 +296,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Images\Uploads\" />
-    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\Plugins\jquery-ui-1.13.1\package.json" />
@@ -315,6 +314,7 @@
     <Content Include="Views\Home\_Messages.cshtml" />
     <Content Include="Views\Home\_Users.cshtml" />
     <Content Include="Views\Home\_Posts.cshtml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
